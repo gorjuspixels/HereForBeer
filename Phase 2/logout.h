@@ -1,0 +1,2 @@
+//logout.h
+void logout();

@@ -1,0 +1,2 @@
+//buy.h
+void buy();

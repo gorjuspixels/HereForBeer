@@ -1,0 +1,5 @@
+all:
+	g++ main.cpp login.cpp logout.cpp create.cpp delete.cpp sell.cpp buy.cpp refund.cpp add_credit.cpp
+
+a.out : main.cpp
+	g++ main.cpp
