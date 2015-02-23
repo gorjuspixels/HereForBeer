@@ -11,9 +11,10 @@
 using namespace std;
 int main(int argc, char const *argv[])
 {
+
+	string username = "";
+
 	//Prints out the main logo
-
-
 	cout << "----------------------------------------------------------------------" << endl;
 	cout << "|                        Welcome to TicketzPro                        |"<< endl;
 	cout << "----------------------------------------------------------------------" << endl;
@@ -29,7 +30,7 @@ int main(int argc, char const *argv[])
 
 		//runs methods for each transaction depending on input
 		if(input.compare("login") ==0){
-			login();
+			username = login();
 		}
 		else if(input.compare("logout") ==0){
 			logout();
@@ -41,7 +42,7 @@ int main(int argc, char const *argv[])
 			delete_user();
 		}
 		else if(input.compare("sell") ==0){
-			sell();
+			sell(username);
 		}
 		else if(input.compare("buy") ==0){
 			buy();
