@@ -1,11 +1,12 @@
 //login.cpp
 //Runs the log in transaction, and returns the information for the daily transaction file
 #include "login.h"
-#include "iostream"
-#include "fstream"
+#include <iostream>
+#include <fstream>
+#include <string>
 using namespace std;
 
-char *login(){
+string login(){
 	string username = "";
 	//TODO: Read in current user accounts file
 
@@ -15,8 +16,7 @@ char *login(){
 
 	//TODO: Check that username exsists within the current user accounts file
 
-	//TODO: Read in the available tickets fi
+	//TODO: Read in the available tickets file
 
-
-	return "27";
+	return username;
 }

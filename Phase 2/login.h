@@ -1,2 +1,4 @@
 //login.h
-char *login();
+#include <string>
+using namespace std;
+string login();
