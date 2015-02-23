@@ -1,2 +1,2 @@
 //login.h
-void login();
+char* login();
