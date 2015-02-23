@@ -34,7 +34,7 @@ void create(){
 
 	//Writes this transaction to the daily transaction file
 	ofstream daily_transaction_file;
-  	daily_transaction_file.open ("transactions.etf");
+  	daily_transaction_file.open ("transactions.etf", ios::app);
   	daily_transaction_file << daily_transaction+"\n";
   	daily_transaction_file.close();
 
