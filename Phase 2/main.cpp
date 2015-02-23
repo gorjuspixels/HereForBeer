@@ -15,7 +15,7 @@ int main(int argc, char const *argv[])
 
 
 	cout << "----------------------------------------------------------------------" << endl;
-	cout << "|		Welcome to TicketzPro                       |"<< endl;
+	cout << "|                        Welcome to TicketzPro                        |"<< endl;
 	cout << "----------------------------------------------------------------------" << endl;
 
 	//Main Program loop
