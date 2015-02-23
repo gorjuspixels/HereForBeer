@@ -1,2 +1,2 @@
 //sell.h
-void sell();
+void sell(string username);
