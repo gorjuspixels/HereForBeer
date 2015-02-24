@@ -171,7 +171,12 @@ bool creditRequired(string &actionNum) {
   }
 }
 
-string foromatCredit(string &credit) {
+/**
+ * Formats credit by adding 0's in front until the string has 9 characters
+ *
+ * @param: credit - User's available credit
+ */
+string formatCredit(string &credit) {
 
   int creditLength = 9;
   string newFormat = "";
@@ -201,6 +206,11 @@ bool eventNameRequired(string &actionNum) {
   }
 }
 
+/**
+ * Formats event name by adding spaces until it has 19 characters
+ *
+ * @param: eventName - Event name
+ */
 string formatEventName(string &eventName) {
   int eventNameLenght = 19;
   string newFormat = "";
@@ -210,6 +220,73 @@ string formatEventName(string &eventName) {
   return eventName + newFormat;
 }
 
+/**
+ * Checks if number of tickets is required
+ *
+ * @param actionNum - Action number
+ */
+bool ticketNumRequired(string &actionNum) {
+
+  // Sell
+  if (!actionNum.compare("03")) {
+    return true;
+
+    // Buy
+  } else if (!actionNum.compare("04")) {
+    return true;
+  } else {
+
+    return false;
+  }
+}
+
+/**
+ * Formats number of tickets by adding 0's in front until it has 3 characters
+ *
+ * @param: ticketNum - Number of tickets
+ */
+string formatTicketNum(string &ticketNum) {
+  int ticketNumLength = 3;
+  string newFormat = "";
+  for (int i = ticketNum.size(); i < ticketNumLength; i++) {
+    newFormat += ZERO;
+  }
+  return newFormat + ticketNum;
+}
+
+/**
+ * Checks if ticket price is required
+ *
+ * @param actionNum - Action number
+ */
+bool ticketPriceRequired(string &actionNum) {
+
+  // Sell
+  if (!actionNum.compare("03")) {
+    return true;
+
+    // Buy
+  } else if (!actionNum.compare("04")) {
+    return true;
+  } else {
+
+    return false;
+  }
+}
+
+/**
+ * Formats ticket price by adding 0's in front until it has 6 characters
+ *
+ * @param: ticketPrice - Ticket price
+ */
+string formatTicketPrice(string &ticketPrice) {
+  int ticketNumLength = 6;
+  string newFormat = "";
+  for (int i = ticketPrice.size(); i < ticketNumLength; i++) {
+    newFormat += ZERO;
+  }
+  return newFormat + ticketPrice;
+}
 
 
 /**
@@ -247,8 +324,18 @@ void dailyTrans(int size, string data[]) {
     currentIndex++;
   }
 
+  if (ticketNumRequired(actionNum)) {
+    transaction += SEP + formatTicketNum(data[currentIndex]);
+    currentIndex++;
+  }
+
+  if (ticketPriceRequired(actionNum)) {
+    transaction += SEP + formatTicketPrice(data[currentIndex]);
+    currentIndex++;
+  }
+
   if (creditRequired(actionNum)) {
-    transaction += SEP + foromatCredit(data[currentIndex]);
+    transaction += SEP + formatCredit(data[currentIndex]);
     currentIndex++;
   }
 
