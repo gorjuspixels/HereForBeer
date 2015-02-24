@@ -2,6 +2,9 @@
 #ifndef LOGOUT_H
 #define LOGOUT_H
 
-void logout();
+#include <string>
+using namespace std;
+
+void logout(string &username);
 
 #endif

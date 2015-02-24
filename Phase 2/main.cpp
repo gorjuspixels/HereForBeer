@@ -31,9 +31,16 @@ int main(int argc, char const *argv[])
     //runs methods for each transaction depending on input
     if (input.compare("login") == 0) {
       username = login();
+      cout << "Welcome back, " << username << "!" << endl;
     }
     else if (input.compare("logout") == 0) {
-      logout();
+      if (username.length() == 0) {
+        cerr << "ERROR: you must be logged in." << endl;
+        continue;
+      }
+      logout(username);
+      username = "";
+      cout << "See you later, " << username << "!" << endl;
     }
     else if (input.compare("create") == 0) {
       create();

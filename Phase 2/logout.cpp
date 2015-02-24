@@ -1,15 +1,17 @@
 //logout.cpp
 
 #include "logout.h"
-void logout() {
-  //Creates the string to be written to the transaction file
-  // string daily_transaction = "00_000000000000000_00_000000000"
+#include "daily_transaction.h"
+using namespace std;
 
+void logout(string &username) {
+  const string ACTION_NAME = "end of session";
 
-  //Writes this transaction to the daily transaction file
-  // ofstream daily_transaction_file;
-  //   daily_transaction_file.open ("transactions.etf", ios::app);
-  //   daily_transaction_file << daily_transaction+"\n";
-  //   daily_transaction_file.close();
+  // TODO: retreive these values
+  string credit = "0";
+  string user_type = "AA";
+
+  string data[] = {ACTION_NAME, username, user_type, credit};
+  dailyTrans(4, data);
   return;
 }
