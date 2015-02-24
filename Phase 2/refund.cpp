@@ -9,7 +9,7 @@ void refund() {
   string receiver;
   string issuer;
   string amount;
-  string actionName = "refund";
+  const string ACTION_NAME = "refund";
 
   //Asks the user who issues the refund
   cout << "Enter user's username who is issueing the refund:" << endl;
@@ -23,7 +23,7 @@ void refund() {
   cout << "Amount being refunded:" << endl;
   cin >> amount;
 
-  string data[] = {actionName, receiver, issuer, "9999999"};
+  string data[] = {ACTION_NAME, receiver, issuer, "9999999"};
   dailyTrans(4, data);
 
   return;

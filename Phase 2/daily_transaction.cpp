@@ -136,15 +136,16 @@ bool userTypeRequired(string &actionNum) {
  */
 string getUserType(string &type) {
 
+  if (type.length() == 2) return type;
+
   if (!type.compare("admin")) {
     return "AA";
-
   } else if (!type.compare("full-standard")) {
     return "FS";
   } else if (!type.compare("buy-standard")) {
-    return "FS";
+    return "BS";
   } else if (!type.compare("sell-standard")) {
-    return "FS";
+    return "SS";
   } else {
 
     cerr << "ERROR: No user type " << type << " found.";

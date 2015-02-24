@@ -13,7 +13,7 @@ void sell(string username) {
 	string event_name;
 	string sale_price;
 	string tickets_for_sale;
-	string actionName = "sell";
+	const string ACTION_NAME = "sell";
 
 	//Asks the user for the event title
 	cout << "Enter the name of the event" << endl;
@@ -29,7 +29,7 @@ void sell(string username) {
 	cout << "Enter the number of tickets for sale" << endl;
 	cin >> tickets_for_sale;
 
-	string data[] = {actionName, event_name, username, tickets_for_sale, sale_price};
+	string data[] = {ACTION_NAME, event_name, username, tickets_for_sale, sale_price};
 	dailyTrans(5, data);
 	return;
 }
