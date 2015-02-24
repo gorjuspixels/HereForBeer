@@ -1,4 +1,12 @@
-//daily_transaction.cpp
+/**
+ * daily_transaction.cpp
+ *
+ * Generate daily transaction file for each event.
+ * Just execute write() method while passing a string array
+ * of transaction parameters in ordered format
+ *
+ */
+
 #include <string>
 #include "iostream"
 using namespace std;
