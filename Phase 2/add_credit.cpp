@@ -2,9 +2,11 @@
 #include <iostream>
 #include <fstream>
 #include "add_credit.h"
+#include "daily_transaction.h"
 using namespace std;
 
 void add_credit() {
+  const string ACTION_NAME = "addcredit";
   string username;
   string credits;
 
@@ -16,28 +18,8 @@ void add_credit() {
   cout << "Enter the user to recieve the credits" << endl;
   cin >> username;
 
-  //Creates the string to be written to the transaction file
-  string daily_transaction = "06 ";
-  daily_transaction += username;
-  int len = username.length();
-  while (len < 15) {
-    daily_transaction += "_";
-    len ++;
-  }
-  daily_transaction += " AA ";
-
-  len = credits.length();
-  while (len < 9) {
-    daily_transaction += "0";
-    len ++;
-  }
-  daily_transaction += credits + " ";
-
-
-  //Writes this transaction to the daily transaction file
-  ofstream daily_transaction_file;
-  daily_transaction_file.open ("transactions.etf", ios::app);
-  daily_transaction_file << daily_transaction + "\n";
-  daily_transaction_file.close();
+  // TODO: look up user's type
+  string data[] = {ACTION_NAME, username, "AA", credits};
+  dailyTrans(4, data);
   return;
 }
