@@ -181,6 +181,35 @@ string foromatCredit(string &credit) {
   return newFormat + credit;
 }
 
+/**
+ * Checks if event name is required
+ *
+ * @param actionNum - Action number
+ */
+bool eventNameRequired(string &actionNum) {
+
+  // Sell
+  if (!actionNum.compare("03")) {
+    return true;
+
+    // Buy
+  } else if (!actionNum.compare("04")) {
+    return true;
+  } else {
+
+    return false;
+  }
+}
+
+string formatEventName(string &eventName) {
+  int eventNameLenght = 19;
+  string newFormat = "";
+  for (int i = eventName.size(); i < eventNameLenght; i++) {
+    newFormat += SEP;
+  }
+  return eventName + newFormat;
+}
+
 
 
 /**
@@ -190,13 +219,18 @@ string foromatCredit(string &credit) {
  *
  * args: {"create", "User007", "admin", "999999"} or {"refund", "User007", "UserSeller", "321"};
  */
-void dailyTrans(string (&data)[4]) {
+void dailyTrans(int size, string data[]) {
   string transaction = "";
   string actionNum = getActionNum(data[0]);
   transaction += actionNum;
 
   // Event name is always at index 0, so start at index 1
   int currentIndex = 1;
+
+  if (eventNameRequired(actionNum)) {
+    transaction += SEP + formatEventName(data[currentIndex]);
+    currentIndex++;
+  }
 
   if (usernameRequired(actionNum)) {
     transaction += SEP + formatUsername(data[currentIndex]);

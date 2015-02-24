@@ -24,7 +24,7 @@ void refund() {
   cin >> amount;
 
   string data[] = {actionName, receiver, issuer, "9999999"};
-  dailyTrans(data);
+  dailyTrans(4, data);
 
   return;
 }

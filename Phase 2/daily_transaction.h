@@ -5,6 +5,6 @@
 #include <string>
 using namespace std;
 
-void dailyTrans(string (&data)[4]);
+void dailyTrans(int size, string data[]);
 
 #endif
