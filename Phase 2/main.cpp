@@ -50,7 +50,7 @@ int main(int argc, char const *argv[])
 		else if(input.compare("refund") ==0){
 			refund();
 		}
-		else if(input.compare("add credit") ==0){
+		else if(input.compare("add_credit") ==0){
 			add_credit();
 		}
 		else if(input.compare("exit") == 0){
