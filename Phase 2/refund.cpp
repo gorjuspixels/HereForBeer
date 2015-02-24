@@ -3,11 +3,14 @@
  *
  * Refunds an `x` amount from issuer's account into receiver's (buyer's) account
  */
+
+#include "daily_transaction"
 void refund() {
 
   string receiver;
   string issuer;
   string amount;
+  string actionName = "refund";
 
   //Asks the user who issues the refund
   cout << "Enter user's username who is issueing the refund: " <<endl;
@@ -21,6 +24,8 @@ void refund() {
   cout << "Amount being refunded: " <<endl;
   cin >> amount;
 
+  string data[] = {actionName, receiver, issuer, "9999999"};
+  daily_transaction.write(data);
 
 	return;
 }
