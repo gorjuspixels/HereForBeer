@@ -1,6 +1,6 @@
 //daily_transaction.h
-#ifndef SELL_H
-#define SELL_H
+#ifndef DAILY_TRANSACTION_H
+#define DAILY_TRANSACTION_H
 
 #include <string>
 using namespace std;
