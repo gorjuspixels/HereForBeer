@@ -209,7 +209,10 @@ string write(string (&data)[4]){
     currentIndex++;
   }
 
-  cout << transaction << "\n";
-
+  // Writes this transaction to the daily transaction file
+  ofstream daily_transaction_file;
+  daily_transaction_file.open ("transactions.etf", ios::app);
+  daily_transaction_file << transaction+"\n";
+  daily_transaction_file.close();
   return;
 }
