@@ -1,10 +1,9 @@
-/**
- * refund.cpp
- *
- * Refunds an `x` amount from issuer's account into receiver's (buyer's) account
- */
+#include <string>
+#include <iostream>
+#include "refund.h"
+#include "daily_transaction.h"
+using namespace std;
 
-#include "daily_transaction"
 void refund() {
 
   string receiver;
@@ -25,7 +24,7 @@ void refund() {
   cin >> amount;
 
   string data[] = {actionName, receiver, issuer, "9999999"};
-  daily_transaction.write(data);
+  dailyTrans(data);
 
 	return;
 }

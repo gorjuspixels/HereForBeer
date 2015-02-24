@@ -1,8 +1,11 @@
 //sell.cpp
 #include <iostream>
 #include <fstream>
+#include <string>
+#include "sell.h"
 using namespace std;
-void sell(string username){
+
+void sell(string username) {
 	string event_name;
 	string sale_price;
 	string tickets_for_sale;
@@ -11,7 +14,7 @@ void sell(string username){
 	cout << "Enter the name of the event" <<endl;
 	cin >> event_name;
 
-	//Asks the user for the sale price 
+	//Asks the user for the sale price
 	cout << "Enter the sale price of the tickets(ex 2.22)" << endl;
 	cin >> sale_price;
 

@@ -1,7 +1,9 @@
 //add_credit.cpp
 #include <iostream>
 #include <fstream>
+#include "add_credit.h"
 using namespace std;
+
 void add_credit(){
 	string username;
 	string credits;

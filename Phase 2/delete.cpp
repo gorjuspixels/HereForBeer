@@ -1,6 +1,7 @@
 //delete.cpp
 #include <iostream>
 #include <fstream>
+#include "delete.h"
 using namespace std;
 void delete_user(){
 	string username;

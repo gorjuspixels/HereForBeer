@@ -8,8 +8,9 @@
  */
 
 #include <string>
+#include <fstream>
 #include "iostream"
-using namespace std;
+#include "daily_transaction.h"
 
 // Separator (space)
 const char SEP = ' ';
@@ -189,7 +190,7 @@ string foromatCredit(string& credit) {
  *
  * args: {"create", "User007", "admin", "999999"} or {"refund", "User007", "UserSeller", "321"};
  */
-string write(string (&data)[4]){
+void dailyTrans(string (&data)[4]) {
   string transaction = "";
   string actionNum = getActionNum(data[0]);
   transaction += actionNum;

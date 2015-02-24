@@ -1,7 +1,9 @@
 //buy.cpp
 #include <iostream>
 #include <fstream>
+#include "buy.h"
 using namespace std;
+
 void buy(){
 	string event_title;
 	string number_of_tickets;

@@ -1,2 +1,10 @@
 //daily_transaction.h
-void write();
+#ifndef SELL_H
+#define SELL_H
+
+#include <string>
+using namespace std;
+
+void dailyTrans(string (&data)[4]);
+
+#endif
