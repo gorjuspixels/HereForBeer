@@ -23,7 +23,7 @@ const char ZERO = '0';
  *
  * @param action - action name
  */
-string getActionNum(string& action) {
+string getActionNum(string &action) {
   if (!action.compare("end of session")) {
     return "00";
   } else if (!action.compare("create")) {
@@ -50,10 +50,10 @@ string getActionNum(string& action) {
  *
  * @param username - User's username
  */
-string formatUsername(string& username) {
+string formatUsername(string &username) {
   int usernameLength = 15;
   string spaces = "";
-  for (int i=username.size(); i < usernameLength; i++) {
+  for (int i = username.size(); i < usernameLength; i++) {
     spaces += SEP;
   }
   return username + spaces;
@@ -64,13 +64,13 @@ string formatUsername(string& username) {
  *
  * @param actionNum - Action number
  */
-bool usernameRequired(string& actionNum) {
+bool usernameRequired(string &actionNum) {
 
   // Sell
   if (!actionNum.compare("03")) {
     return false;
 
-  // Buy
+    // Buy
   } else if (!actionNum.compare("04")) {
     return false;
   } else {
@@ -84,17 +84,17 @@ bool usernameRequired(string& actionNum) {
  *
  * @param actionNum - Action number
  */
-bool sellerRequired(string& actionNum) {
+bool sellerRequired(string &actionNum) {
 
   // Sell
   if (!actionNum.compare("03")) {
     return true;
 
-  // Buy
+    // Buy
   } else if (!actionNum.compare("04")) {
     return true;
 
-  // Refund
+    // Refund
   } else if (!actionNum.compare("05")) {
     return true;
   } else {
@@ -108,17 +108,17 @@ bool sellerRequired(string& actionNum) {
  *
  * @param actionNum - Action number
  */
-bool userTypeRequired(string& actionNum) {
+bool userTypeRequired(string &actionNum) {
 
   // Sell
   if (!actionNum.compare("03")) {
     return false;
 
-  // Buy
+    // Buy
   } else if (!actionNum.compare("04")) {
     return false;
 
-  // Refund
+    // Refund
   } else if (!actionNum.compare("05")) {
     return false;
   } else {
@@ -134,7 +134,7 @@ bool userTypeRequired(string& actionNum) {
  *
  * @param type - User type
  */
-string getUserType(string& type) {
+string getUserType(string &type) {
 
   if (!type.compare("admin")) {
     return "AA";
@@ -156,13 +156,13 @@ string getUserType(string& type) {
  *
  * @param actionNum - Action number
  */
-bool creditRequired(string& actionNum) {
+bool creditRequired(string &actionNum) {
 
   // Sell
   if (!actionNum.compare("03")) {
     return false;
 
-  // Buy
+    // Buy
   } else if (!actionNum.compare("04")) {
     return false;
   } else {
@@ -171,11 +171,11 @@ bool creditRequired(string& actionNum) {
   }
 }
 
-string foromatCredit(string& credit) {
+string foromatCredit(string &credit) {
 
   int creditLength = 9;
   string newFormat = "";
-  for (int i=credit.size(); i < creditLength; i++) {
+  for (int i = credit.size(); i < creditLength; i++) {
     newFormat += ZERO;
   }
   return newFormat + credit;
@@ -221,7 +221,7 @@ void dailyTrans(string (&data)[4]) {
   // Writes this transaction to the daily transaction file
   ofstream daily_transaction_file;
   daily_transaction_file.open ("transactions.etf", ios::app);
-  daily_transaction_file << transaction+"\n";
+  daily_transaction_file << transaction << endl;
   daily_transaction_file.close();
   return;
 }

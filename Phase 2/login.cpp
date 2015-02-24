@@ -6,17 +6,17 @@
 #include <string>
 using namespace std;
 
-string login(){
-	string username = "";
-	//TODO: Read in current user accounts file
+string login() {
+  string username = "";
+  //TODO: Read in current user accounts file
 
-	//Prompts user to enter their username
-	cout << "Please enter your username" << endl;
-	cin >> username;
+  //Prompts user to enter their username
+  cout << "Please enter your username" << endl;
+  cin >> username;
 
-	//TODO: Check that username exsists within the current user accounts file
+  //TODO: Check that username exsists within the current user accounts file
 
-	//TODO: Read in the available tickets file
+  //TODO: Read in the available tickets file
 
-	return username;
+  return username;
 }

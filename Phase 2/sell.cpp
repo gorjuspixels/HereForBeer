@@ -11,7 +11,7 @@ void sell(string username) {
 	string tickets_for_sale;
 
 	//Asks the user for the event title
-	cout << "Enter the name of the event" <<endl;
+	cout << "Enter the name of the event" << endl;
 	cin >> event_name;
 
 	//Asks the user for the sale price
@@ -27,37 +27,37 @@ void sell(string username) {
 	daily_transaction = "03 ";
 	daily_transaction += event_name;
 	int len = event_name.length();
-	while (len <25){
+	while (len < 25) {
 		daily_transaction += "_";
 		len ++;
 	}
-	daily_transaction +=" ";
+	daily_transaction += " ";
 	daily_transaction += username;
 	len = username.length();
-	while (len <15){
+	while (len < 15) {
 		daily_transaction += "_";
 		len ++;
 	}
-	daily_transaction +=" ";
+	daily_transaction += " ";
 
 	len = tickets_for_sale.length();
-	while (len < 3){
+	while (len < 3) {
 		daily_transaction += "0";
 		len ++;
 	}
-	daily_transaction+= tickets_for_sale + " ";
+	daily_transaction += tickets_for_sale + " ";
 
 	len = sale_price.length();
-	while (len < 9){
-		daily_transaction +="0";
+	while (len < 9) {
+		daily_transaction += "0";
 		len ++;
 	}
-	daily_transaction+= sale_price + " ";
+	daily_transaction += sale_price + " ";
 
 	//Writes this transaction to the daily transaction file
 	ofstream daily_transaction_file;
-  	daily_transaction_file.open ("transactions.etf", ios::app);
-  	daily_transaction_file << daily_transaction+"\n";
-  	daily_transaction_file.close();
+	daily_transaction_file.open ("transactions.etf", ios::app);
+	daily_transaction_file << daily_transaction + "\n";
+	daily_transaction_file.close();
 	return;
 }
