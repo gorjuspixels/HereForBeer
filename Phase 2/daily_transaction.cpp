@@ -49,9 +49,9 @@ string getActionNum(string &action) {
  * Formats username. Username is 15 characters. If it is less, add spaces on the right side.
  *
  * @param username - User's username
+ * @param usernameLength - username length (for buy & sell it's 13.. otherwise 15)
  */
-string formatUsername(string &username) {
-  int usernameLength = 15;
+string formatUsername(string &username, int usernameLength) {
   string spaces = "";
   for (int i = username.size(); i < usernameLength; i++) {
     spaces += SEP;
@@ -311,7 +311,7 @@ void dailyTrans(int size, string data[]) {
   }
 
   if (usernameRequired(actionNum)) {
-    transaction += SEP + formatUsername(data[currentIndex]);
+    transaction += SEP + formatUsername(data[currentIndex], 15);
     currentIndex++;
   }
 
@@ -321,7 +321,11 @@ void dailyTrans(int size, string data[]) {
   }
 
   if (sellerRequired(actionNum)) {
-    transaction += SEP + formatUsername(data[currentIndex]);
+    int length = 15;
+    if (eventNameRequired(actionNum)) {
+      length = 13;
+    }
+    transaction += SEP + formatUsername(data[currentIndex], length);
     currentIndex++;
   }
 
