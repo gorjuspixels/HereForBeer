@@ -4,5 +4,4 @@
 
 void buy();
 
-
 #endif

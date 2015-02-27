@@ -8,11 +8,25 @@
 #include "buy.h"
 #include "refund.h"
 #include "add_credit.h"
+#include "data_store.h"
 using namespace std;
-int main(int argc, char const *argv[])
-{
+
+/**
+ * Runs the main program
+ *
+ * File paths are default unless provided:
+ * @param argv[0] - path to user file
+ * @param argv[1] - path to ticket file
+ * @param argv[2] - path to daily transaction file
+ */
+int main(int argc, char const *argv[]) {
 
   string username = "";
+  DataStore dataStore = DataStore::getIntance();
+  if (argv.size() > 0) {
+    cout << argv[0];
+    // dataStore.updateStores(argv[0], argv[1], argv[2])
+  }
 
   //Prints out the main logo
   cout << "----------------------------------------------------------------------" << endl;
