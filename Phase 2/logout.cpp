@@ -1,5 +1,5 @@
 //logout.cpp
-
+//logs the user out, and ends the session
 #include "logout.h"
 #include "daily_transaction.h"
 using namespace std;
