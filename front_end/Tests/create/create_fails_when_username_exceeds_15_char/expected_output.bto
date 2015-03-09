@@ -1,0 +1,11 @@
+----------------------------------------------------------------------
+|                        Welcome to TicketzPro                        |
+----------------------------------------------------------------------
+Enter a command: 
+Please enter your username
+Welcome back, admin!
+Enter a command: 
+Enter a new username: 
+Enter the type of user: Admin: AA, full-standard : FS, buy-standard : BS, or sell-standard: SS
+ERROR: Username exceeds the limit 
+Enter a command: 
