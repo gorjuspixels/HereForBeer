@@ -1,5 +1,7 @@
 #!/bin/bash
 
+make -C ..
+
 for f in $(find . -name '*.sh'); do
 cd $(dirname $f)
 bash $(basename $f)
