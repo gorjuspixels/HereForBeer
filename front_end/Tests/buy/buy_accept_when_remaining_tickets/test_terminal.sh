@@ -5,7 +5,7 @@ NC='\033[0m' # No Color
 ./../../../a.out <input.inp >output.bto
 DIFF=$(diff -q -w output.bto expected_output.bto)
 if [ "$DIFF" = "" ];then
-	echo -e ${green}BUY ACCEPT WHEN REMAINING TICKETS: TERMINAL OUTPUT PASS ${NC}
+	echo -e ${green}BUY ACCEPTS WHEN REMAINING TICKETS: TERMINAL OUTPUT PASS ${NC}
 else
-	echo -e ${red}BUY ACCEPT WHEN REMAINING TICKETS: TERMINAL OUTPUT FAIL	${NC}
+	echo -e ${red}BUY ACCEPTS WHEN REMAINING TICKETS: TERMINAL OUTPUT FAIL	${NC}
 fi
