@@ -35,7 +35,7 @@ int main(int argc, char const *argv[])
     }
     else if (input.compare("logout") == 0) {
       if (username.length() == 0) {
-        cerr << "ERROR: you must be logged in." << endl;
+        cout << "ERROR: you must be logged in." << endl;
         continue;
       }
       logout(username);
@@ -43,21 +43,45 @@ int main(int argc, char const *argv[])
       cout << "See you later, " << username << "!" << endl;
     }
     else if (input.compare("create") == 0) {
+      if (username.length() == 0) {
+        cout << "ERROR: you must be logged in." << endl;
+        continue;
+      }
       create();
     }
     else if (input.compare("delete") == 0) {
+      if (username.length() == 0) {
+        cout << "ERROR: you must be logged in." << endl;
+        continue;
+      }
       delete_user();
     }
     else if (input.compare("sell") == 0) {
+      if (username.length() == 0) {
+        cout << "ERROR: you must be logged in." << endl;
+        continue;
+      }
       sell(username);
     }
     else if (input.compare("buy") == 0) {
+      if (username.length() == 0) {
+        cout << "ERROR: you must be logged in." << endl;
+        continue;
+      }
       buy();
     }
     else if (input.compare("refund") == 0) {
+      if (username.length() == 0) {
+        cout << "ERROR: you must be logged in." << endl;
+        continue;
+      }
       refund();
     }
     else if (input.compare("add_credit") == 0) {
+      if (username.length() == 0) {
+        cout << "ERROR: you must be logged in." << endl;
+        continue;
+      }
       add_credit();
     }
     else if (input.compare("exit") == 0) {
