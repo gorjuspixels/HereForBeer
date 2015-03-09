@@ -5,7 +5,7 @@ NC='\033[0m' # No Color
 ./../../../a.out <input.inp >output.bto
 DIFF=$(diff -q -w output.bto expected_output.bto)
 if [ "$DIFF" = "" ];then
-	echo -e ${green}LOGOUT ACCEPTED WHEN LOGGED IN: PASS ${NC}
+	echo -e ${green}LOGOUT ACCEPTED WHEN LOGGED IN: TERMINAL OUTPUT PASS ${NC}
 else
-	echo -e ${red}LOGOUT ACCEPTED WHEN LOGGED IN: FAIL	${NC}
+	echo -e ${red}LOGOUT ACCEPTED WHEN LOGGED IN: TERMINAL OUTPUT FAIL	${NC}
 fi
