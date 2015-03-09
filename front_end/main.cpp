@@ -47,7 +47,7 @@ int main(int argc, char const *argv[])
       }
       logout(username);
       username = "";
-      cout << "See you later, " << username << "!" << endl;
+      cout << "Logout Complete" << endl;
     }
     else if (input.compare("create") == 0) {
       if (username.length() == 0) {
