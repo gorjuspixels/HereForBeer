@@ -92,7 +92,7 @@ int main(int argc, char const *argv[])
         cout << "ERROR: you must be logged in." << endl;
         continue;
       }
-      sell(username);
+      sell(user);
     }
     else if (input.compare("buy") == 0) {
       if (username.length() == 0) {

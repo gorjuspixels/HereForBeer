@@ -5,7 +5,5 @@ Enter a command:
 Please enter your username
 Welcome back, peterBS!
 Enter a command: 
-Enter the name of the event
-Enter the sale price of the tickets(ex 2.22)
-Enter the number of tickets for sale
+ERROR: Access denied. Your account type may not sell
 Enter a command: 

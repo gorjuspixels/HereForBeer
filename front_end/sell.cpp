@@ -6,7 +6,12 @@
 #include "daily_transaction.h"
 using namespace std;
 
-void sell(string username) {
+void sell(vector<string> currentUser) {
+
+  if (currentUser[1] == "BS") {
+    cout << "ERROR: Access denied. Your account type may not sell" << endl;
+    return;
+  }
 
   // ignore 256 chars until new line.. this is so that getline doesnt get skipped
   cin.ignore(256, '\n');
@@ -34,7 +39,7 @@ void sell(string username) {
   cout << "Enter the number of tickets for sale" << endl;
   cin >> tickets_for_sale;
 
-  string data[] = {ACTION_NAME, event_name, username, tickets_for_sale, sale_price};
+  string data[] = {ACTION_NAME, event_name, currentUser[0], tickets_for_sale, sale_price};
   dailyTrans(5, data);
   return;
 }

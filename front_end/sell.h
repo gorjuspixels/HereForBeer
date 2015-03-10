@@ -1,9 +1,9 @@
 #ifndef SELL_H
 #define SELL_H
 
-#include <string>
+#include <vector>
 using namespace std;
 
-void sell(string username);
+void sell(vector<string> currentUser);
 
 #endif
