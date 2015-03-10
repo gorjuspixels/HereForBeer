@@ -6,4 +6,5 @@ Please enter your username
 Welcome back, admin!
 Enter a command: 
 Enter the username of the user you wish to delete
+ERROR: Cannot delete a user that does not exist
 Enter a command: 

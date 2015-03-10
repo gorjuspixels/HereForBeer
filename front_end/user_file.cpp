@@ -21,16 +21,6 @@ const char SEP = ' ';
 // Credit placeholder (zero)
 const char ZERO = '0';
 
-
-void write(string &data) {
-  // Writes this transaction to the daily transaction file
-  ofstream user_file;
-  user_file.open ("user_file.uf", ios::app);
-  user_file << data << endl;
-  user_file.close();
-}
-
-
 void createUser(int size, string data[]) {
 
   if (size < 4) {
@@ -62,16 +52,44 @@ vector<string> getUser(string &username) {
   string line;
   while (getline(user_file, line)) {
 
-      // find username
-      string temp = replaceinString(line.substr(0, 15), " ", "");
+    // find username
+    string temp = replaceinString(line.substr(0, 15), " ", "");
 
-      if (temp == username) {
-        // the same
-        user.push_back(temp);
-        user.push_back(replaceinString(line.substr(16, 2), " ", ""));
-        user.push_back(replaceinString(line.substr(19, 9), " ", ""));
-      }
+    if (temp == username) {
+      // the same
+      user.push_back(temp);
+      user.push_back(replaceinString(line.substr(16, 2), " ", ""));
+      user.push_back(replaceinString(line.substr(19, 9), " ", ""));
+    }
   }
 
+  user_file.close();
+
   return user;
+}
+
+void deleteUser(string &username) {
+  ifstream user_file;
+  ofstream tmpFile;
+  user_file.open("user_file.uf", ios::app);
+  tmpFile.open("tmp.uf", ios::app);
+
+  string line;
+  while (getline(user_file, line)) {
+
+    // find username
+    string temp = replaceinString(line.substr(0, 15), " ", "");
+
+    if (temp != username) {
+      tmpFile << line;
+    }
+  }
+
+  // remove old file
+  user_file.close();
+  remove("user_file.uf");
+
+  // rename new file
+  tmpFile.close();
+  rename("tmp.uf", "user_file.uf");
 }

@@ -1,21 +1,33 @@
 //delete.cpp
 #include <iostream>
 #include <fstream>
+#include <vector>
 #include "delete.h"
+#include "user_file.h"
 #include "daily_transaction.h"
 
 using namespace std;
-void delete_user() {
+void delete_user(vector<string> currentUser) {
   const string ACTION_NAME = "delete";
+
   string username;
   //Asks user for the username they wish to remove
   cout << "Enter the username of the user you wish to delete" << endl;
   cin >> username;
 
-  //TODO: lookup user type and credit
-  string user_type = "AA";
-  string credit = "99999";
-  string data[] = {ACTION_NAME, username, user_type, credit};
+  vector<string> user = getUser(username);
+  if (user.size() == 0) {
+    cout << "ERROR: Cannot delete a user that does not exist" << endl;
+    return;
+  } else if (username == currentUser[0]) {
+    cout << "ERROR: Cannot delete current user" << endl;
+    return;
+  }
+
+  cout << "HELLO" << endl;
+
+  string data[] = {ACTION_NAME, user[0], user[1], user[2]};
   dailyTrans(4, data);
+  deleteUser(username);
   return;
 }

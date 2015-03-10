@@ -8,6 +8,6 @@ using namespace std;
 
 vector<string> getUser(string& username);
 void createUser(int size, string data[]);
-void saveUser(string& username);
+void deleteUser(string &username);
 
 #endif

@@ -2,6 +2,9 @@
 #ifndef DELETE_H
 #define DELETE_H
 
-void delete_user();
+#include <vector>
+using namespace std;
+
+void delete_user(vector<string> currentUser);
 
 #endif

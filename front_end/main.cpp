@@ -78,7 +78,7 @@ int main(int argc, char const *argv[])
         cout << "ERROR: you must be logged in." << endl;
         continue;
       }
-      delete_user();
+      delete_user(user);
     }
     else if (input.compare("sell") == 0) {
       if (username.length() == 0) {

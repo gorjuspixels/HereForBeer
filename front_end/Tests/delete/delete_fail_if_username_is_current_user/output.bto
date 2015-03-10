@@ -6,4 +6,5 @@ Please enter your username
 Welcome back, admin!
 Enter a command: 
 Enter the username of the user you wish to delete
+ERROR: Cannot delete current user
 Enter a command: 
