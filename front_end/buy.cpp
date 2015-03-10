@@ -1,8 +1,10 @@
 //buy.cpp
 #include <iostream>
 #include <fstream>
+#include <vector>
 #include "buy.h"
 #include "daily_transaction.h"
+#include "user_file.h"
 using namespace std;
 
 void buy() {
@@ -25,13 +27,10 @@ void buy() {
   cout << "Enter the seller's username" << endl;
   cin >> seller;
 
-  //Prompts for user type.
-  //TODO: implement data store and fetch the user from it
-  cout << "Enter the seller's account type" << endl;
-  cin >> accountType;
+  vector<string> sellerAccount = getUser(seller);
 
   bool permissionGranted = true;
-  if (!accountType.compare("SS")) {
+  if (!sellerAccount[1].compare("SS")) {
     permissionGranted = false;
   }
 

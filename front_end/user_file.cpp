@@ -68,8 +68,8 @@ vector<string> getUser(string &username) {
       if (temp == username) {
         // the same
         user.push_back(temp);
-        user.push_back(replaceinString(line.substr(18, 2), " ", ""));
-        user.push_back(replaceinString(line.substr(21, 9), " ", ""));
+        user.push_back(replaceinString(line.substr(16, 2), " ", ""));
+        user.push_back(replaceinString(line.substr(19, 9), " ", ""));
       }
   }
 

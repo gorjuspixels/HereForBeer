@@ -8,6 +8,5 @@ Enter a command:
 Enter the event title
 Enter the number of tickets
 Enter the seller's username
-Enter the seller's account type
 ERROR: Permission denied. Your account type is not sufficient to buy.
 Enter a command:
