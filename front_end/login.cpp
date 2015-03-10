@@ -4,9 +4,11 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <vector>
+#include "user_file.h"
 using namespace std;
 
-string login() {
+vector<string> login() {
   string username = "";
   //TODO: Read in current user accounts file
 
@@ -17,6 +19,6 @@ string login() {
   //TODO: Check that username exsists within the current user accounts file
 
   //TODO: Read in the available tickets file
-
-  return username;
+  vector<string> user = getUser(username);
+  return user;
 }

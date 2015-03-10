@@ -9,6 +9,8 @@
 #include <fstream>
 #include "iostream"
 #include "iomanip"
+#include <sstream>
+#include <vector>
 #include "user_file.h"
 #include "daily_transaction.h"
 using namespace std;
@@ -37,7 +39,39 @@ void createUser(int size, string data[]) {
 
   // TODO: check if username already exists
   ofstream user_file;
-  user_file.open ("user_file.uf", ios::app);
+  user_file.open("user_file.uf", ios::app);
   user_file << formatUsername(data[1], 15) << SEP << data[2] << SEP << formatCredit(data[3]) << endl;
   user_file.close();
+}
+
+// replaces a character with another character
+string replaceinString(string str, string tofind, string toreplace) {
+  size_t position = 0;
+
+  for (position = str.find(tofind); position != std::string::npos; position = str.find(tofind,position) ) {
+    str.replace(position ,1, toreplace);
+  }
+  return(str);
+}
+
+vector<string> getUser(string &username) {
+  ifstream user_file;
+  user_file.open("user_file.uf", ios::app);
+
+  vector<string> user;
+  string line;
+  while (getline(user_file, line)) {
+
+      // find username
+      string temp = replaceinString(line.substr(0, 15), " ", "");
+
+      if (temp == username) {
+        // the same
+        user.push_back(temp);
+        user.push_back(replaceinString(line.substr(18, 2), " ", ""));
+        user.push_back(replaceinString(line.substr(21, 9), " ", ""));
+      }
+  }
+
+  return user;
 }

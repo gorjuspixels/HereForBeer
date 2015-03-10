@@ -3,7 +3,8 @@
 #define LOGIN_H
 
 #include <string>
+#include <vector>
 using namespace std;
-string login();
+vector<string> login();
 
 #endif

@@ -1,5 +1,6 @@
 //main.cpp
 #include "iostream"
+#include <vector>
 #include "login.h"
 #include "logout.h"
 #include "create.h"
@@ -13,6 +14,7 @@ int main(int argc, char const *argv[])
 {
 
   string username = "";
+  vector<string> user;
 
   //Prints out the main logo
   cout << "----------------------------------------------------------------------" << endl;
@@ -31,13 +33,19 @@ int main(int argc, char const *argv[])
     //runs methods for each transaction depending on input
     if (input.compare("login") == 0) {
       if (username.length() == 0) {
-        
-        username = login();
-      }
-      else{
+
+        user = login();
+      } else {
         cout << "ERROR: you are already logged in." << endl;
         continue;
       }
+
+      if (user.size() == 0) {
+        cout << "ERROR: No user with specified username exists!" << endl;
+        continue;
+      }
+
+      username = user[0];
       cout << "Welcome back, " << username << "!" << endl;
     }
     else if (input.compare("logout") == 0) {
