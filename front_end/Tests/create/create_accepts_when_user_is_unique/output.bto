@@ -3,11 +3,8 @@
 ----------------------------------------------------------------------
 Enter a command: 
 Please enter your username
-ERROR: No user with specified username exists!
+Welcome back, admin!
 Enter a command: 
-ERROR: you must be logged in.
-Enter a command: 
-ERROR: Unknown command
-Enter a command: 
-ERROR: Unknown command
+Enter a new username: 
+Enter the type of user: Admin: AA, full-standard : FS, buy-standard : BS, or sell-standard: SS 
 Enter a command: 
