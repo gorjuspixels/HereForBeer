@@ -41,6 +41,7 @@ string getActionNum(string &action) {
   } else {
 
     cerr << "ERROR: Invalid action name. Please refer to the project decription for action names.\n";
+    return "INVALID";
   }
 }
 
@@ -149,6 +150,7 @@ string getUserType(string &type) {
   } else {
 
     cerr << "ERROR: No user type " << type << " found.";
+    return "INVALID";
   }
 }
 

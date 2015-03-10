@@ -6,5 +6,7 @@
 using namespace std;
 
 void dailyTrans(int size, string data[]);
+string formatUsername(string &username, int usernameLength);
+string formatCredit(string &credit);
 
 #endif
