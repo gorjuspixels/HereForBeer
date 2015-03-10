@@ -14,6 +14,11 @@ void create() {
   cout << "Enter a new username: " << endl;
   cin >> username;
 
+  if (username.length() > 15) {
+    cout << "ERROR: Username exceeds the limit (15 chars)" << endl;
+    return;
+  }
+
   //Asks user for the type of the new user
   string user_type = "";
   cout << "Enter the type of user: Admin: AA, full-standard : FS, buy-standard : BS, or sell-standard: SS " << endl;

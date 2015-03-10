@@ -1,5 +1,6 @@
 //main.cpp
 #include "iostream"
+#include <fstream>
 #include <vector>
 #include "login.h"
 #include "logout.h"
@@ -10,9 +11,17 @@
 #include "refund.h"
 #include "add_credit.h"
 using namespace std;
+
+void createFiles() {
+  string dailyTrans = "transactions.etf";
+  if (!ifstream(dailyTrans.c_str())) {
+    ofstream file(dailyTrans.c_str());
+  }
+}
+
 int main(int argc, char const *argv[])
 {
-
+  createFiles();
   string username = "";
   vector<string> user;
 
