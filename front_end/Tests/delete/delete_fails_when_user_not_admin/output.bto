@@ -5,6 +5,5 @@ Enter a command:
 Please enter your username
 Welcome back, peter!
 Enter a command: 
-Enter the username of the user you wish to delete
-ERROR: Cannot delete a user that does not exist
+ERROR: Access denied. You must be administrator to complete this action
 Enter a command: 

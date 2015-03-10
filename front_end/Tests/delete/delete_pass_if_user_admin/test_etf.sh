@@ -7,7 +7,7 @@ NC='\033[0m' # No Color
 if [  -f transactions.etf ]; then
     rm transactions.etf
 fi
-./../../../a.out <input.inp >output.bto
+./../../../a.out "1" <input.inp >output.bto
 DIFF=$(diff -q -w transactions.etf expected_transactions.etf)
 if [ "$DIFF" = "" ];then
 	echo -e ${green}$success PASS - DELETE PASS WHEN USER IS ADMIN: TRANSACTION OUTPUT ${NC}

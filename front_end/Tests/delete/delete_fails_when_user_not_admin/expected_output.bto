@@ -1,9 +1,9 @@
 ----------------------------------------------------------------------
 |                        Welcome to TicketzPro                        |
 ----------------------------------------------------------------------
-Enter a command: 
+Enter a command:
 Please enter your username
 Welcome back, peter!
 Enter a command:
-Error: You must be administrator to complete this action
-Enter a command: 
+ERROR: Access denied. You must be administrator to complete this action
+Enter a command:

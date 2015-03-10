@@ -10,6 +10,11 @@ using namespace std;
 void delete_user(vector<string> currentUser, bool testing_env) {
   const string ACTION_NAME = "delete";
 
+  if (currentUser[1] != "AA") {
+    cout << "ERROR: Access denied. You must be administrator to complete this action" << endl;
+    return;
+  }
+
   string username;
   //Asks user for the username they wish to remove
   cout << "Enter the username of the user you wish to delete" << endl;
@@ -31,5 +36,6 @@ void delete_user(vector<string> currentUser, bool testing_env) {
     deleteUser(username);
   }
 
+  cout << "SUCCESS: User Deleted" << endl;
   return;
 }
