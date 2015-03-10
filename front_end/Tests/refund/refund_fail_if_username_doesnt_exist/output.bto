@@ -7,5 +7,5 @@ Welcome back, admin!
 Enter a command: 
 Enter user's username who is issueing the refund:
 Enter user's username who is receiving the refund:
-Amount being refunded:
+ERROR: User with specified username doesn't exist
 Enter a command: 
