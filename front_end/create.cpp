@@ -6,7 +6,7 @@
 #include "daily_transaction.h"
 #include "user_file.h"
 using namespace std;
-void create() {
+void create(bool testing_env) {
   const string ACTION_NAME = "create";
 
   //Asks user to input a username
@@ -28,6 +28,11 @@ void create() {
 
   string data[] = {ACTION_NAME, username, user_type, credit};
   dailyTrans(4, data);
-  createUser(4, data);
+
+  if (!testing_env) {
+    // actually create user only if we're not testing
+    createUser(4, data);
+  }
+
   return;
 }

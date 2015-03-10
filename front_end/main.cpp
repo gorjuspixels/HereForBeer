@@ -1,6 +1,7 @@
 //main.cpp
 #include "iostream"
 #include <fstream>
+#include <cstring>
 #include <vector>
 #include "login.h"
 #include "logout.h"
@@ -24,6 +25,12 @@ int main(int argc, char const *argv[])
   createFiles();
   string username = "";
   vector<string> user;
+  bool testing_env = false;
+
+  if (argc > 1) {
+    testing_env = (strcmp(argv[1], "1") == 0) ? true : false;
+  }
+
 
   //Prints out the main logo
   cout << "----------------------------------------------------------------------" << endl;
@@ -37,7 +44,7 @@ int main(int argc, char const *argv[])
     //gets the user input
 
     string input;
-    cin >> input ;
+    cin >> input;
 
     //runs methods for each transaction depending on input
     if (input.compare("login") == 0) {
@@ -71,14 +78,14 @@ int main(int argc, char const *argv[])
         cout << "ERROR: you must be logged in." << endl;
         continue;
       }
-      create();
+      create(testing_env);
     }
     else if (input.compare("delete") == 0) {
       if (username.length() == 0) {
         cout << "ERROR: you must be logged in." << endl;
         continue;
       }
-      delete_user(user);
+      delete_user(user, testing_env);
     }
     else if (input.compare("sell") == 0) {
       if (username.length() == 0) {
@@ -106,7 +113,7 @@ int main(int argc, char const *argv[])
         cout << "ERROR: you must be logged in." << endl;
         continue;
       }
-      add_credit();
+      add_credit(testing_env);
     }
     else if (input.compare("exit") == 0) {
       break;

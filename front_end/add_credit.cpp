@@ -5,7 +5,7 @@
 #include "daily_transaction.h"
 using namespace std;
 
-void add_credit() {
+void add_credit(bool testing_env) {
   const string ACTION_NAME = "addcredit";
   string username;
   string credits;

@@ -81,7 +81,7 @@ void deleteUser(string &username) {
     string temp = replaceinString(line.substr(0, 15), " ", "");
 
     if (temp != username) {
-      tmpFile << line;
+      tmpFile << line << endl;
     }
   }
 

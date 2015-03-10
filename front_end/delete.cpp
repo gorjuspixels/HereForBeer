@@ -7,7 +7,7 @@
 #include "daily_transaction.h"
 
 using namespace std;
-void delete_user(vector<string> currentUser) {
+void delete_user(vector<string> currentUser, bool testing_env) {
   const string ACTION_NAME = "delete";
 
   string username;
@@ -24,10 +24,12 @@ void delete_user(vector<string> currentUser) {
     return;
   }
 
-  cout << "HELLO" << endl;
-
   string data[] = {ACTION_NAME, user[0], user[1], user[2]};
   dailyTrans(4, data);
-  deleteUser(username);
+
+  if (!testing_env) {
+    deleteUser(username);
+  }
+
   return;
 }

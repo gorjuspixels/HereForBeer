@@ -5,6 +5,6 @@
 #include <vector>
 using namespace std;
 
-void delete_user(vector<string> currentUser);
+void delete_user(vector<string> currentUser, bool testing_env);
 
 #endif
