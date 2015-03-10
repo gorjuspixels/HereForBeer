@@ -1,9 +1,15 @@
 #!/bin/bash
 
 make -C ..
-
+PREVOP=""
 for f in $(find . -name '*.sh'); do
 cd $(dirname $f)
+IFS='/' read -ra ADDR <<< "$f"
+CURRENTOP=${ADDR[1]}
+if [ "$PREVOP" != "$CURRENTOP" ]; then
+  PREVOP=$CURRENTOP
+  echo "<-----------------------------------" ${PREVOP^^} "----------------------------------->"
+fi
 bash $(basename $f)
 cd ../.. ; done
 

@@ -9,5 +9,5 @@ DIFF=$(diff -q -w output.bto expected_output.bto)
 if [ "$DIFF" = "" ];then
 	echo -e ${green}$success PASS - DELETE PASS WHEN USER IS ADMIN: TERMINAL OUTPUT ${NC}
 else
-	echo -e ${red}$fail FAIL - DELETE FAILS WHEN USER IS ADMIN: TERMINAL OUTPUT ${NC}
+	echo -e ${red}$fail FAIL - DELETE PASS WHEN USER IS ADMIN: TERMINAL OUTPUT ${NC}
 fi
