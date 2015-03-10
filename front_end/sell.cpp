@@ -21,6 +21,11 @@ void sell(string username) {
   // Use getline to allow event names with spaces
   getline(cin, event_name);
 
+  if (event_name.length() > 25) {
+    cout << "ERROR: Event name must be 25 or less characters" << endl;
+    return;
+  }
+
   //Asks the user for the sale price
   cout << "Enter the sale price of the tickets(ex 2.22)" << endl;
   cin >> sale_price;
