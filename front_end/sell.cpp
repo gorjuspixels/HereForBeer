@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <cstdlib>
 #include "sell.h"
 #include "daily_transaction.h"
 using namespace std;
@@ -38,6 +39,11 @@ void sell(vector<string> currentUser) {
   //Asks the user for the number of tickets up for sale
   cout << "Enter the number of tickets for sale" << endl;
   cin >> tickets_for_sale;
+
+  if (atoi(tickets_for_sale.c_str()) > 100) {
+    cout << "ERROR: Number of tickets may not exceed 100" << endl;
+    return;
+  }
 
   string data[] = {ACTION_NAME, event_name, currentUser[0], tickets_for_sale, sale_price};
   dailyTrans(5, data);
