@@ -4,6 +4,7 @@
 #include <string>
 #include "create.h"
 #include "daily_transaction.h"
+#include "user_file.h"
 using namespace std;
 void create() {
   const string ACTION_NAME = "create";
@@ -22,5 +23,6 @@ void create() {
 
   string data[] = {ACTION_NAME, username, user_type, credit};
   dailyTrans(4, data);
+  createUser(4, data);
   return;
 }
