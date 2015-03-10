@@ -3,7 +3,9 @@
 ----------------------------------------------------------------------
 Enter a command: 
 Please enter your username
-Welcome back, admin!
+ERROR: No user with specified username exists!
 Enter a command: 
-Enter the username of the user you wish to delete
+ERROR: you must be logged in.
+Enter a command: 
+ERROR: Unknown command
 Enter a command: 
