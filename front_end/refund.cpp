@@ -5,7 +5,12 @@
 #include "daily_transaction.h"
 using namespace std;
 
-void refund() {
+void refund(vector<string> currentUser) {
+
+  if (currentUser[1] != "AA") {
+    cout << "ERROR: Access denied. You must be administrator to complete this action" << endl;
+    return;
+  }
 
   string receiverUsername;
   string issuerUsername;

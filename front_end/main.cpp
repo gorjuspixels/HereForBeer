@@ -106,7 +106,7 @@ int main(int argc, char const *argv[])
         cout << "ERROR: you must be logged in." << endl;
         continue;
       }
-      refund();
+      refund(user);
     }
     else if (input.compare("add_credit") == 0) {
       if (username.length() == 0) {

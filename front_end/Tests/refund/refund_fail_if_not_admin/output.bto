@@ -5,7 +5,5 @@ Enter a command:
 Please enter your username
 Welcome back, peter!
 Enter a command: 
-Enter user's username who is issueing the refund:
-Enter user's username who is receiving the refund:
-Amount being refunded:
+ERROR: Access denied. You must be administrator to complete this action
 Enter a command: 
