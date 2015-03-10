@@ -11,6 +11,7 @@ void buy() {
   string tickets_for_sale;
   string seller;
   string confirmation;
+  string accountType;
 
   //Prompts user for event title
   cout << "Enter the event title" << endl;
@@ -23,6 +24,21 @@ void buy() {
   //Prompts user for sellers username
   cout << "Enter the seller's username" << endl;
   cin >> seller;
+
+  //Prompts for user type.
+  //TODO: implement data store and fetch the user from it
+  cout << "Enter the seller's account type" << endl;
+  cin >> accountType;
+
+  bool permissionGranted = true;
+  if (!accountType.compare("SS")) {
+    permissionGranted = false;
+  }
+
+  if (!permissionGranted) {
+    cout << "ERROR: Permission denied. Your account type is not sufficient to buy." << endl;
+    return;
+  }
 
   //Asks the user for confirmation
   cout << "Do you accept this transaction?('yes', or 'no')" << endl;

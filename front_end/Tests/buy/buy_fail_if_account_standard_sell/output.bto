@@ -3,10 +3,11 @@
 ----------------------------------------------------------------------
 Enter a command: 
 Please enter your username
-Welcome back, peterSS!
+Welcome back, admin!
 Enter a command: 
 Enter the event title
 Enter the number of tickets
 Enter the seller's username
-Do you accept this transaction?('yes', or 'no')
+Enter the seller's account type
+ERROR: Permission denied. Your account type is not sufficient to buy.
 Enter a command: 

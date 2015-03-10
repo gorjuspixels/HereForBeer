@@ -1,12 +1,13 @@
 ----------------------------------------------------------------------
 |                        Welcome to TicketzPro                        |
 ----------------------------------------------------------------------
-Enter a command: 
+Enter a command:
 Please enter your username
 Welcome back, peterSS!
-Enter a command: 
+Enter a command:
 Enter the event title
 Enter the number of tickets
 Enter the seller's username
+Enter the seller's account type
 Do you accept this transaction?('yes', or 'no')
-Enter a command: 
+Enter a command:
