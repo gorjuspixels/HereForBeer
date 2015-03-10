@@ -3,6 +3,7 @@
 #include <fstream>
 #include "add_credit.h"
 #include "daily_transaction.h"
+#include "user_file.h"
 using namespace std;
 
 void add_credit(bool testing_env) {
@@ -18,8 +19,18 @@ void add_credit(bool testing_env) {
   cout << "Enter the user to recieve the credits" << endl;
   cin >> username;
 
+  vector<string> user = getUser(username);
+  if (user.size() == 0) {
+    cout << "ERROR: User with specified username does not exist" << endl;
+    return;
+  }
+
   // TODO: look up user's type
-  string data[] = {ACTION_NAME, username, "AA", credits};
+  string data[] = {ACTION_NAME, user[0], user[1], credits};
   dailyTrans(4, data);
+
+  if (!testing_env) {
+    addCredit(username, credits);
+  }
   return;
 }

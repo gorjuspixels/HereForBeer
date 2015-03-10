@@ -7,4 +7,5 @@ Welcome back, admin!
 Enter a command: 
 Enter the amount of credits to be added
 Enter the user to recieve the credits
+ERROR: User with specified username does not exist
 Enter a command: 

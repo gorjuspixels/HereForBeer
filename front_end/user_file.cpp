@@ -93,3 +93,7 @@ void deleteUser(string &username) {
   tmpFile.close();
   rename("tmp.uf", "user_file.uf");
 }
+
+void addCredit(string &username, string &credits) {
+  //TODO: implement method
+}

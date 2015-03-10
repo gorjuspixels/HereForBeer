@@ -9,5 +9,6 @@ using namespace std;
 vector<string> getUser(string& username);
 void createUser(int size, string data[]);
 void deleteUser(string &username);
+void addCredit(string &username, string &credits);
 
 #endif
