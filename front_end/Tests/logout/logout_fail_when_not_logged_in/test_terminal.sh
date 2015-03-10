@@ -4,7 +4,7 @@ green='\033[0;32m'
 success='\u2713'
 fail='\u2717'
 NC='\033[0m' # No Color
-./../../../a.out <input.inp >output.bto
+./../../../a.out "1" <input.inp >output.bto
 DIFF=$(diff -q -w output.bto expected_output.bto)
 if [ "$DIFF" = "" ];then
 	echo -e ${green}$success PASS - LOGOUT FAIL WHEN NOT LOGGED IN: TERMINAL OUTPUT ${NC}
