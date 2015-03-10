@@ -8,5 +8,4 @@ Enter a command:
 Enter the name of the event
 Enter the sale price of the tickets(ex 2.22)
 Enter the number of tickets for sale
-ERROR: Number of tickets may not exceed 100
 Enter a command: 
