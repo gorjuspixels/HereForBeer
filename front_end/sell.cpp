@@ -35,6 +35,10 @@ void sell(vector<string> currentUser) {
   //Asks the user for the sale price
   cout << "Enter the sale price of the tickets(ex 2.22)" << endl;
   cin >> sale_price;
+  if (atoi(sale_price.c_str()) > 999.99) {
+    cout << "ERROR: Ticket price may not exceed $999.99" << endl;
+    return;
+  }
 
   //Asks the user for the number of tickets up for sale
   cout << "Enter the number of tickets for sale" << endl;

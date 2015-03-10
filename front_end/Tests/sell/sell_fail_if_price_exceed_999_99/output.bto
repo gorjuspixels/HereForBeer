@@ -7,6 +7,5 @@ Welcome back, peter!
 Enter a command: 
 Enter the name of the event
 Enter the sale price of the tickets(ex 2.22)
-Enter the number of tickets for sale
-ERROR: Number of tickets may not exceed 100
+ERROR: Ticket price may not exceed $999.99
 Enter a command: 
