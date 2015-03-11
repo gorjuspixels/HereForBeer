@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <vector>
 #include "create.h"
 #include "daily_transaction.h"
 #include "user_file.h"
@@ -16,6 +17,13 @@ void create(bool testing_env) {
 
   if (username.length() > 15) {
     cout << "ERROR: Username exceeds the limit (15 chars)" << endl;
+    return;
+  }
+
+  vector<string> userExists = getUser(username);
+  if (userExists.size() > 0) {
+    // username is not unique
+    cout << "ERROR: User with that username already exists. Username must be unique." << endl;
     return;
   }
 

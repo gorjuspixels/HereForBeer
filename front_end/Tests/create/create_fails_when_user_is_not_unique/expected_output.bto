@@ -1,0 +1,10 @@
+----------------------------------------------------------------------
+|                        Welcome to TicketzPro                        |
+----------------------------------------------------------------------
+Enter a command:
+Please enter your username
+Welcome back, admin!
+Enter a command:
+Enter a new username:
+ERROR: User with that username already exists. Username must be unique.
+Enter a command:
