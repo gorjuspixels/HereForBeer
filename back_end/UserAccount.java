@@ -1,8 +1,8 @@
-public class userAccount{
+public class UserAccount{
 	private String username;
 	private String type;
 	private float credit;
-	
+
 	public String getUsername(){
 		return this.username;
 	}
@@ -14,18 +14,18 @@ public class userAccount{
 	}
 	public void setUsername(String username){
 		this.username = username;
-	} 
+	}
 	public void setType(String type){
 		this.type = type;
 	}
 	public void setCredit(float credit){
 		this.credit = credit;
 	}
-	public userAccount get(String username){
+	public UserAccount get(String username){
 		//Place holder code
 		return this;
 	}
 	public void save(){
 	}
-		
+
 }

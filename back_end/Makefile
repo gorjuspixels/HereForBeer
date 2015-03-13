@@ -1,6 +1,6 @@
-all: backEnd.class userAccount.class
+all: BackEnd.class UserAccount.class
 
-backEnd.class: backEnd.java
-	javac backEnd.java
-userAccount.class : userAccount.java
-	javac userAccount.java
+BackEnd.class: BackEnd.java
+	javac BackEnd.java
+UserAccount.class: UserAccount.java
+	javac UserAccount.java
