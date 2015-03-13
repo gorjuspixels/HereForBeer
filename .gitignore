@@ -1,3 +1,4 @@
 *.class
 *.iml
 back_end/.idea/*
+*.out
