@@ -1,7 +1,7 @@
 # HereForBeer
 CSCI 3060 / SOFE 3980 Group Project Repository
 
-## Linux Instructions
+## Linux Instructions (Front End)
 - make sure to have g++ installed
 - `cd` into cloned directory
 - run `make` to compile
