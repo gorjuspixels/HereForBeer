@@ -1,6 +1,10 @@
 import java.io.*;
 public class BackEnd {
-	public static void main(String[] args) {	
+	public static void main(String[] args) {
+
+		//Creates holder classes for the events, and accounts
+		UserAccount_Holder accounts = new UserAccount_Holder();
+		Event_Holder event = new Event_Holder();	
 
 		/*TODO:Read the old current user accounts file
 		 *     Create a user object for each user
@@ -61,10 +65,10 @@ public class BackEnd {
 		
 
 
-		//TODO: Generate the new user accounts file (UserAccount_Holder.save())
+		//Generate the new user accounts file
+		accounts.save();
 
-
-		//TODO: Generate the new available tickets file (Event_Holder.save())
-
+		//Generate the new available tickets file
+		events.save();
 	}
 }
