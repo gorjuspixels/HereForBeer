@@ -19,20 +19,4 @@ public class Event{
 		//Dummy return
 		return 0.0f;
 	}
-	//saves the event
-	public void save(){
-
-	}
-	//returns a list of all the events that were on the event file
-	public static List<Event> getAllEvents(){
-		//dummy return
-		List<Event> l = new ArrayList<Event>();
-		return l;
-	}
-	//returns an event as specified through the event title
-	public static Event get(String title){
-		//dummy return
-		return new Event();
-	}
-
 }
