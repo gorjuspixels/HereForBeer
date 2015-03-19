@@ -1,4 +1,4 @@
-all: BackEnd.class UserAccount.class Event.class Transaction.class Event_Holder.class
+all: BackEnd.class UserAccount.class Event.class Transaction.class Event_Holder.class UserAccount_Holder.class
 
 BackEnd.class: BackEnd.java
 	javac BackEnd.java
@@ -10,5 +10,7 @@ Event.class: Event.java
 	javac Event.java
 Event_Holder.class: Event_Holder.java
 	javac Event_Holder.java
+UserAccount_Holder.class: UserAccount_Holder.java
+		javac UserAccount_Holder.java
 clean:
 	rm *.class

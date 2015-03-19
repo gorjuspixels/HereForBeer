@@ -35,7 +35,5 @@ public class UserAccount{
 		//Place holder code
 		return this;
 	}
-	public void save(){
-	}
 
 }
