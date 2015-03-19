@@ -2,10 +2,16 @@ import java.io.*;
 public class BackEnd {
 	public static void main(String[] args) {	
 
-		//TODO:Read the old current user accounts file
+		/*TODO:Read the old current user accounts file
+		 *     Create a user object for each user
+		 *     Add each user to a list, and store in UserAccount_Holder class
+		*/
 
 
-		//TODO: Read the old available tickets file
+		/*TODO: Read the old available tickets file
+		 *      Create an Event class for each event in the file
+		 *      Add each event to a list, and store in the Event_Holder class 
+		*/
 
 
 		//Reads the merged daily transaction file
@@ -20,8 +26,8 @@ public class BackEnd {
 				//Applies the transactions
 				while(br.ready()){
 					String transaction = br.readLine();
-					/*TODO: Figure out the context of the transaction(First 2 numbers)
-					 *      Apply any needed changes to the event and user_account objects
+					/*TODO: Create a new Transaction object with the information from the string
+					 *      Create/modify the events/users if need be
 					 */
 
 
@@ -41,10 +47,10 @@ public class BackEnd {
 		
 
 
-		//TODO: Generate the new user accounts file
+		//TODO: Generate the new user accounts file (UserAccount_Holder.save())
 
 
-		//TODO: Generate the new available tickets file
+		//TODO: Generate the new available tickets file (Event_Holder.save())
 
 	}
 }
