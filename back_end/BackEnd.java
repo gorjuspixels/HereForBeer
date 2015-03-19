@@ -1,9 +1,6 @@
+import java.io.*;
 public class BackEnd {
-	public static void main(String[] args) {
-		
-
-		//TODO:Read the merged daily transaction file
-
+	public static void main(String[] args) {	
 
 		//TODO:Read the old current user accounts file
 
@@ -11,7 +8,37 @@ public class BackEnd {
 		//TODO: Read the old available tickets file
 
 
-		//TODO: Line by line, apply the transactions stored in the merged daily transaction file
+		//Reads the merged daily transaction file
+		try{
+			FileReader fr = new FileReader("transactions.etf");
+
+
+			//Reads the transaction file line by line
+			try{
+				BufferedReader br = new BufferedReader(fr);
+
+				//Applies the transactions
+				while(br.ready()){
+					String transaction = br.readLine();
+					/*TODO: Figure out the context of the transaction(First 2 numbers)
+					 *      Apply any needed changes to the event and user_account objects
+					 */
+
+
+
+
+				}
+			}
+			catch(IOException e){
+				System.out.println("ERROR: An error occured while processing the transaction file");
+			}
+
+		}
+		catch(FileNotFoundException e){
+			System.out.println("ERROR: transactions.etf not found");
+		}
+
+		
 
 
 		//TODO: Generate the new user accounts file
