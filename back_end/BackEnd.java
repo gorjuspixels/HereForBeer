@@ -1,6 +1,11 @@
 import java.io.*;
 public class BackEnd {
-	public static void main(String[] args) {
+  private static final String USER_ACCOUNTS = "UserAccounts.txt";
+  private static final String AVAIL_TICKETS = "AvailableTickets.txt";
+  private static FileReader accountFileReader;
+  private static FileReader ticketFileReader;
+
+  public static void main(String[] args) {
 
 		//Creates holder classes for the events, and accounts
 		UserAccount_Holder accounts = new UserAccount_Holder();
@@ -10,26 +15,14 @@ public class BackEnd {
 		 *     Create a user object for each user
 		 *     Add each user to a list, and store in UserAccount_Holder class
 		*/
-		try{
-			FileReader account_fr = new FileReader("UserAccounts.txt");
-
-		}		
-		catch(FileNotFoundException e){
-			System.out.println("ERROR: UserAccounts.txt not found");
-		}
+		accountFileReader = initializeFile(USER_ACCOUNTS);
 
 
 		/*TODO: Read the old available tickets file
 		 *      Create an Event class for each event in the file
 		 *      Add each event to a list, and store in the Event_Holder class 
 		*/
-		try{
-			FileReader event_fr = new FileReader("AvailableTickets.txt");
-
-		}		
-		catch(FileNotFoundException e){
-			System.out.println("ERROR: AvailableTickets.txt not found");
-		}
+    ticketFileReader = initializeFile(AVAIL_TICKETS);
 
 
 		//Reads the merged daily transaction file
@@ -71,4 +64,26 @@ public class BackEnd {
 		//Generate the new available tickets file
 		events.save();
 	}
+
+
+  /**
+   * Initializes required files
+   * @param fileName Name of the file to initialize
+   * @return FileReader object
+   */
+  private static FileReader initializeFile(String fileName) {
+    FileReader fileReader = null;
+    try {
+      File file = new File(fileName);
+      if(!file.exists()) {
+        file.createNewFile();
+      }
+
+      fileReader = new FileReader(file);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+
+    return fileReader;
+  }
 }
