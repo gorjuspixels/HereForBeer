@@ -12,6 +12,27 @@ public class Transaction {
   private String sellerName;
   private String userType;
   private float credit;
+
+  // Sets event name
+  public void setEventName(String eventName) {
+    this.eventName = eventName;
+  }
+
+  // Sets number of tickets
+  public void setTicketNum(int countTickets) {
+    this.countTickets = countTickets;
+  }
+
+  // Sets ticket price
+  public void setTicketPrice(int ticketPrice) {
+    this.ticketPrice = ticketPrice;
+  }
+
+  // Sets seller name
+  public void setSellerName(String sellerName) {
+    this.sellerName = sellerName;
+  }
+
   private String eventName;
   private int countTickets;
   private int ticketPrice;
@@ -23,9 +44,19 @@ public class Transaction {
     return code;
   }
 
+  // Sets transaction code
+  public void setCode(String code) {
+      this.code = code;
+  }
+
   // Returns username (buyer if there's also a seller)
   public String getUsername() {
     return username;
+  }
+
+  // Sets transaction username
+  public void setUsername(String username) {
+    this.username = username;
   }
 
   // Returns seller's username
@@ -38,9 +69,19 @@ public class Transaction {
     return userType;
   }
 
+  // Sets transaction's user type
+  public void setUserType(String type) {
+    this.userType = type;
+  }
+
   // Returns credit (depends on the context of the transaction)
   public float getCredit() {
     return credit;
+  }
+
+  // Sets transaction's user type
+  public void setCredit(float credit) {
+    this.credit = credit;
   }
 
   // Returns event name
