@@ -4,7 +4,7 @@ public class BackEnd {
 
 		//Creates holder classes for the events, and accounts
 		UserAccount_Holder accounts = new UserAccount_Holder();
-		Event_Holder event = new Event_Holder();	
+		Event_Holder events = new Event_Holder();
 
 		/*TODO:Read the old current user accounts file
 		 *     Create a user object for each user
