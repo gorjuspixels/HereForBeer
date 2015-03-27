@@ -17,7 +17,6 @@ public class Transaction {
     this.setCode(transaction.substring(0, 2));
 
     this.setupProperties(transaction);
-    //01 sam             FS 000000000
   }
 
   private void setupProperties(String transaction) {
@@ -30,9 +29,16 @@ public class Transaction {
     } else if (this.getCode().equals("03") || this.getCode().equals("04")) {
 
       // sell/buy
+      this.setEventName(transaction.substring(3, 19).trim());
+      this.setSellerName(transaction.substring(23, 13).trim());
+      this.setTicketNum(Integer.valueOf(transaction.substring(37, 3).replaceFirst("^0+(?!$)", "")));
+      this.setTicketPrice(Integer.valueOf(transaction.substring(41).replaceFirst("^0+(?!$)", "")));
     } else if (this.getCode().equals("05")) {
 
       // refund
+      this.setUsername(transaction.substring(3, 15).replaceAll("\\s+", ""));
+      this.setSellerName(transaction.substring(19, 15).replaceAll("\\s+", ""));
+      this.setCredit(Float.valueOf(transaction.substring(35, 9).replaceFirst("^0+(?!$)", "")));
     }
   }
 
