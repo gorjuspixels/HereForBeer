@@ -13,6 +13,29 @@ public class Transaction {
   private String userType;
   private float credit;
 
+  public Transaction(String transaction) {
+    this.setCode(transaction.substring(0, 2));
+
+    this.setupProperties(transaction);
+    //01 sam             FS 000000000
+  }
+
+  private void setupProperties(String transaction) {
+    if (this.getCode().equals("00") || this.getCode().equals("01")
+        || this.getCode().equals("02") || this.getCode().equals("06")) {
+
+      this.setUsername(transaction.substring(3, 15).replaceAll("\\s+", ""));
+      this.setUserType(transaction.substring(19, 2));
+      this.setCredit(Float.valueOf(transaction.substring(22, 9).replaceFirst("^0+(?!$)", "")));
+    } else if (this.getCode().equals("03") || this.getCode().equals("04")) {
+
+      // sell/buy
+    } else if (this.getCode().equals("05")) {
+
+      // refund
+    }
+  }
+
   // Sets event name
   public void setEventName(String eventName) {
     this.eventName = eventName;
