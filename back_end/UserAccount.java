@@ -1,5 +1,5 @@
 /*UserAccount.java
-	This class will model the users to be modifyed in the program
+	This class will model the users to be modified in the program
 */
 public class UserAccount{
 	private String username;
@@ -35,5 +35,33 @@ public class UserAccount{
 		//Place holder code
 		return this;
 	}
+
+  /**
+   * Converts UserAccount object to UserAccount writable string in format UUUUUUUUUUUUUUU_TT_CCCCCCCCC
+   * @return formatted user account string
+   */
+  public String toString() {
+    String s = "";
+    for (int i = 0; i < 15; i++) {
+      if (i < this.username.length()) {
+        s += this.username.charAt(i);
+      } else {
+        s += " ";
+      }
+    }
+
+    s += " ";
+    s += this.type;
+    s += " ";
+
+    String tempCredit = Float.toString(this.credit).replace(".0", "");
+    int length = tempCredit.length();
+    for (int i = 0; i < 9 - length; i++) {
+      tempCredit = "0" + tempCredit;
+    }
+    s += tempCredit;
+
+    return s;
+  }
 
 }

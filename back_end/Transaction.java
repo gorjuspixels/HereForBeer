@@ -24,21 +24,21 @@ public class Transaction {
         || this.getCode().equals("02") || this.getCode().equals("06")) {
 
       this.setUsername(transaction.substring(3, 15).replaceAll("\\s+", ""));
-      this.setUserType(transaction.substring(19, 2));
-      this.setCredit(Float.valueOf(transaction.substring(22, 9).replaceFirst("^0+(?!$)", "")));
+      this.setUserType(transaction.substring(19, 21));
+      this.setCredit(Float.valueOf(transaction.substring(22, 31).replaceFirst("^0+(?!$)", "")));
     } else if (this.getCode().equals("03") || this.getCode().equals("04")) {
 
       // sell/buy
       this.setEventName(transaction.substring(3, 19).trim());
-      this.setSellerName(transaction.substring(23, 13).trim());
-      this.setTicketNum(Integer.valueOf(transaction.substring(37, 3).replaceFirst("^0+(?!$)", "")));
+      this.setSellerName(transaction.substring(23, 36).trim());
+      this.setTicketNum(Integer.valueOf(transaction.substring(37,40).replaceFirst("^0+(?!$)", "")));
       this.setTicketPrice(Integer.valueOf(transaction.substring(41).replaceFirst("^0+(?!$)", "")));
     } else if (this.getCode().equals("05")) {
 
       // refund
       this.setUsername(transaction.substring(3, 15).replaceAll("\\s+", ""));
-      this.setSellerName(transaction.substring(19, 15).replaceAll("\\s+", ""));
-      this.setCredit(Float.valueOf(transaction.substring(35, 9).replaceFirst("^0+(?!$)", "")));
+      this.setSellerName(transaction.substring(19, 36).replaceAll("\\s+", ""));
+      this.setCredit(Float.valueOf(transaction.substring(35, 44).replaceFirst("^0+(?!$)", "")));
     }
   }
 
