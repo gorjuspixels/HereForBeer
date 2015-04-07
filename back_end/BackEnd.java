@@ -137,6 +137,16 @@ public class BackEnd {
             // 03 = sell
             // 04 = buy
 
+            if (transaction.getCode().equals("03")) {
+              Event event = new Event();
+              event.setEventName(transaction.getEventName());
+              event.setCount(transaction.countTickets());
+              event.setSellerName(transaction.getSellerUsername());
+              event.setPrice(transaction.getTicketPrice());
+
+              events.add(event);
+            }
+
 //            this.setEventName(transaction.substring(3, 19).trim());
 //            this.setSellerName(transaction.substring(23, 13).trim());
 //            this.setTicketNum(Integer.valueOf(transaction.substring(37, 3).replaceFirst("^0+(?!$)", "")));
@@ -218,5 +228,9 @@ public class BackEnd {
 
   public UserAccount_Holder getUserAccounts() {
     return accounts;
+  }
+
+  public Event_Holder getEvents() {
+    return events;
   }
 }

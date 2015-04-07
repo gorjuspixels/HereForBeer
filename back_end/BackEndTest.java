@@ -143,11 +143,14 @@ public class BackEndTest {
         "03 Digital Dreams      sam           111 000050",
         "00                    000000000"
     };
-    String description = "should successfully created an event for sale";
+    String description = "should successfully create an event for sale";
     setupTest(transaction);
 
     try {
-
+      int eventIndex = backEnd.getEvents().find("Digital Dreams");
+      Assert.assertNotEquals(description, -1, eventIndex);
+      Event event = backEnd.getEvents().get().get(eventIndex);
+      Assert.assertEquals(description, "Digital Dreams", event.getEventName());
       System.out.println(GREEN + description + " - passed");
     } catch(AssertionError e) {
       System.out.println(RED + description + " - failed");

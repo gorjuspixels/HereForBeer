@@ -33,10 +33,37 @@ public class Event_Holder {
     }
   }
 
+  /**
+   * Adds event to all event list
+   * @param e - event to add
+   * @return added event
+   */
+  public Event add(Event e) {
+    events.add(e);
+    return e;
+  }
+
 	//Returns the list of events
 	public List<Event> get(){
 		return this.events;
 	}
+
+  /**
+   * Finds an event based on its title
+   * @param title - event's title
+   * @return int index of Event element in the array
+   */
+  public int find(String title) {
+    int eventIndex = -1;
+    for (int i=0; i<events.size(); i++) {
+      if (events.get(i).getEventName().equals(title)) {
+        eventIndex = i;
+        break;
+      }
+    }
+
+    return eventIndex;
+  }
 
 
   /**
