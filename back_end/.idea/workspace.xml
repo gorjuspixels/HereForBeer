@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7cac0b9a-de6e-44fa-8269-609b7950115b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BackEnd.java" afterPath="$PROJECT_DIR$/BackEnd.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BackEndTest.java" afterPath="$PROJECT_DIR$/BackEndTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UserAccount_Holder.java" afterPath="$PROJECT_DIR$/UserAccount_Holder.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="back_end.iws" />
@@ -75,8 +73,8 @@
       <file leaf-file-name="BackEndTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/BackEndTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8755656" vertical-offset="1593" max-vertical-offset="4176">
-              <caret line="110" column="14" selection-start-line="110" selection-start-column="14" selection-end-line="110" selection-end-column="14" />
+            <state vertical-scroll-proportion="0.12895928" vertical-offset="2067" max-vertical-offset="4572">
+              <caret line="118" column="35" selection-start-line="118" selection-start-column="35" selection-end-line="118" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -533,7 +531,13 @@
       <option name="project" value="LOCAL" />
       <updated>1428370673414</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added test for successful credit increment">
+      <created>1428371672897</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1428371672897</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -612,7 +616,8 @@
     <MESSAGE value="Transaction: set up properties for codes 00, 01, 02, and 06" />
     <MESSAGE value="Added test for deleting user" />
     <MESSAGE value="Added test for failed deleting user" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added test for failed deleting user" />
+    <MESSAGE value="Added test for successful credit increment" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added test for successful credit increment" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -625,7 +630,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/BackEndTest.java</url>
-          <line>211</line>
+          <line>233</line>
           <properties />
           <option name="timeStamp" value="5" />
         </line-breakpoint>
@@ -1068,8 +1073,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/BackEndTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8755656" vertical-offset="1593" max-vertical-offset="4176">
-          <caret line="110" column="14" selection-start-line="110" selection-start-column="14" selection-end-line="110" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.12895928" vertical-offset="2067" max-vertical-offset="4572">
+          <caret line="118" column="35" selection-start-line="118" selection-start-column="35" selection-end-line="118" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

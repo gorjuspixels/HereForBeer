@@ -89,7 +89,7 @@ public class BackEndTest {
 
   @Test
   /**
-   * Tests user deletion when user does not exist
+   * Tests adding credit to user
    */
   public void testAddCredit() {
     String username = "sam";
@@ -105,6 +105,28 @@ public class BackEndTest {
       int userIndex = backEnd.getUserAccounts().find(username);
       UserAccount userAccount = backEnd.getUserAccounts().get(userIndex);
       Assert.assertEquals(description, 200.0, userAccount.getCredit(), 0.01);
+      System.out.println(GREEN + description + " - passed");
+    } catch(AssertionError e) {
+      System.out.println(RED + description + " - failed");
+      throw e;
+    }
+  }
+
+  @Test
+  /**
+   * Should fail when adding credit to a user that does not exist
+   */
+  public void testFailAddCredit() {
+    String[] transaction = new String[] {
+        "01 sam             FS 000000100",
+        "06 mas             FS 000000100",
+        "00                    000000000"
+    };
+    String description = "should fail when changing credit to a user that doesn't exist";
+    setupTest(transaction);
+
+    try {
+      Assert.assertTrue(description, fileContains(consoleFileName, "ERROR: User doesn't exist."));
       System.out.println(GREEN + description + " - passed");
     } catch(AssertionError e) {
       System.out.println(RED + description + " - failed");
