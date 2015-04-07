@@ -36,8 +36,9 @@ public class Transaction {
     } else if (this.getCode().equals("05")) {
 
       // refund
-      this.setUsername(transaction.substring(3, 15).replaceAll("\\s+", ""));
-      this.setSellerName(transaction.substring(19, 36).replaceAll("\\s+", ""));
+      this.setUsername(transaction.substring(3, 19).replaceAll("\\s+", ""));
+      this.setSellerName(transaction.substring(19, 35).replaceAll("\\s+", ""));
+
       this.setCredit(Float.valueOf(transaction.substring(35, 44).replaceFirst("^0+(?!$)", "")));
     }
   }

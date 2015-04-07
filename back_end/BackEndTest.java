@@ -194,6 +194,40 @@ public class BackEndTest {
     }
   }
 
+  @Test
+  /**
+   * Tests successful refund
+   */
+  public void testSuccessRefund() {
+    String[] transaction = new String[] {
+        "01 sam             FS 000000100",
+        "01 paul            FS 000000200",
+        "03 Digital Dreams      sam           111 000050",
+        "04 Digital Dreams      paul          002 000050",
+        "05 paul            sam             000000100",
+        "00                    000000000"
+    };
+    String description = "should successfully perform refund operation";
+    setupTest(transaction);
+
+    try {
+
+      int userAIndex = backEnd.getUserAccounts().find("sam");
+      int userBIndex = backEnd.getUserAccounts().find("paul");
+
+      UserAccount userA = backEnd.getUserAccounts().get(userAIndex);
+      Assert.assertEquals(description, 100f, userA.getCredit(), 0.01);
+
+      UserAccount userB = backEnd.getUserAccounts().get(userBIndex);
+      Assert.assertEquals(description, 200f, userB.getCredit(), 0.01);
+
+      System.out.println(GREEN + description + " - passed");
+    } catch(AssertionError e) {
+      System.out.println(RED + description + " - failed");
+      throw e;
+    }
+  }
+
   /**
    * Sets up backend with given transaction file
    * @param transaction array of transaction lines

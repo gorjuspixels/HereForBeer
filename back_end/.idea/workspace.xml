@@ -4,7 +4,7 @@
     <list default="true" id="7cac0b9a-de6e-44fa-8269-609b7950115b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BackEnd.java" afterPath="$PROJECT_DIR$/BackEnd.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BackEndTest.java" afterPath="$PROJECT_DIR$/BackEndTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Event_Holder.java" afterPath="$PROJECT_DIR$/Event_Holder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Transaction.java" afterPath="$PROJECT_DIR$/Transaction.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="back_end.iws" />
@@ -33,8 +33,8 @@
       <file leaf-file-name="Transaction.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Transaction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="2034">
-              <caret line="21" column="52" selection-start-line="21" selection-start-column="52" selection-end-line="21" selection-end-column="52" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="433" max-vertical-offset="2052">
+              <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -116,24 +116,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BackEnd.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BackEnd.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BackEnd.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6787234" vertical-offset="3029" max-vertical-offset="5094">
-              <caret line="188" column="41" selection-start-line="188" selection-start-column="41" selection-end-line="188" selection-end-column="41" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1387" max-vertical-offset="5112">
+              <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
               <folding>
-                <element signature="e#9629#9630#0" expanded="true" />
-                <element signature="e#9652#9653#0" expanded="true" />
+                <element signature="e#9720#9721#0" expanded="true" />
+                <element signature="e#9743#9744#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BackEndTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BackEndTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/BackEndTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.428571" vertical-offset="2854" max-vertical-offset="5544">
-              <caret line="167" column="18" selection-start-line="167" selection-start-column="18" selection-end-line="167" selection-end-column="18" />
+            <state vertical-scroll-proportion="0.12967034" vertical-offset="3595" max-vertical-offset="6156">
+              <caret line="203" column="42" selection-start-line="203" selection-start-column="42" selection-end-line="203" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -185,14 +185,14 @@
         <option value="$PROJECT_DIR$/TransactionTest.java" />
         <option value="$PROJECT_DIR$/USER_ACCOUNTS.java" />
         <option value="$PROJECT_DIR$/transactions.etf" />
-        <option value="$PROJECT_DIR$/Transaction.java" />
         <option value="$PROJECT_DIR$/UserAccounts1234.txt" />
         <option value="$PROJECT_DIR$/UserAccount_Holder.java" />
         <option value="$PROJECT_DIR$/UserAccount.java" />
         <option value="$PROJECT_DIR$/Event.java" />
         <option value="$PROJECT_DIR$/Event_Holder.java" />
-        <option value="$PROJECT_DIR$/BackEndTest.java" />
         <option value="$PROJECT_DIR$/BackEnd.java" />
+        <option value="$PROJECT_DIR$/BackEndTest.java" />
+        <option value="$PROJECT_DIR$/Transaction.java" />
       </list>
     </option>
   </component>
@@ -624,12 +624,18 @@
       <option name="project" value="LOCAL" />
       <updated>1428376417731</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Passes successful buy 04">
+      <created>1428377804446</created>
+      <option name="number" value="00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1428377804446</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="0" width="1602" height="901" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -709,19 +715,20 @@
     <MESSAGE value="Event: added load/save methods" />
     <MESSAGE value="BackEndTest now passes all file names" />
     <MESSAGE value="Passes successful sell 03" />
-    <option name="LAST_COMMIT_MESSAGE" value="Passes successful sell 03" />
+    <MESSAGE value="Passes successful buy 04" />
+    <option name="LAST_COMMIT_MESSAGE" value="Passes successful buy 04" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/BackEnd.java</url>
-          <line>190</line>
+          <line>188</line>
           <properties />
-          <option name="timeStamp" value="7" />
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="9" />
+      <option name="time" value="10" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -743,8 +750,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1317" max-vertical-offset="3258">
           <caret line="94" column="41" selection-start-line="94" selection-start-column="41" selection-end-line="94" selection-end-column="41" />
           <folding>
-            <element signature="e#9629#9630#0" expanded="true" />
-            <element signature="e#9652#9653#0" expanded="true" />
+            <element signature="e#9720#9721#0" expanded="true" />
+            <element signature="e#9743#9744#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -828,8 +835,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="2210" max-vertical-offset="2916">
           <caret line="152" column="17" selection-start-line="152" selection-start-column="17" selection-end-line="152" selection-end-column="17" />
           <folding>
-            <element signature="e#9629#9630#0" expanded="true" />
-            <element signature="e#9652#9653#0" expanded="true" />
+            <element signature="e#9720#9721#0" expanded="true" />
+            <element signature="e#9743#9744#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -913,8 +920,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="378" max-vertical-offset="1728">
           <caret line="39" column="10" selection-start-line="39" selection-start-column="10" selection-end-line="39" selection-end-column="42" />
           <folding>
-            <element signature="e#9629#9630#0" expanded="true" />
-            <element signature="e#9652#9653#0" expanded="true" />
+            <element signature="e#9720#9721#0" expanded="true" />
+            <element signature="e#9743#9744#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -961,8 +968,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="378" max-vertical-offset="1728">
           <caret line="39" column="10" selection-start-line="39" selection-start-column="10" selection-end-line="39" selection-end-column="42" />
           <folding>
-            <element signature="e#9629#9630#0" expanded="true" />
-            <element signature="e#9652#9653#0" expanded="true" />
+            <element signature="e#9720#9721#0" expanded="true" />
+            <element signature="e#9743#9744#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1009,8 +1016,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="378" max-vertical-offset="1728">
           <caret line="39" column="10" selection-start-line="39" selection-start-column="10" selection-end-line="39" selection-end-column="42" />
           <folding>
-            <element signature="e#9629#9630#0" expanded="true" />
-            <element signature="e#9652#9653#0" expanded="true" />
+            <element signature="e#9720#9721#0" expanded="true" />
+            <element signature="e#9743#9744#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1046,8 +1053,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="162">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#9629#9630#0" expanded="true" />
-            <element signature="e#9652#9653#0" expanded="true" />
+            <element signature="e#9720#9721#0" expanded="true" />
+            <element signature="e#9743#9744#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1075,8 +1082,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="162">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#9629#9630#0" expanded="true" />
-            <element signature="e#9652#9653#0" expanded="true" />
+            <element signature="e#9720#9721#0" expanded="true" />
+            <element signature="e#9743#9744#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1104,8 +1111,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="135">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#9629#9630#0" expanded="true" />
-            <element signature="e#9652#9653#0" expanded="true" />
+            <element signature="e#9720#9721#0" expanded="true" />
+            <element signature="e#9743#9744#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1140,25 +1147,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Transaction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="343" max-vertical-offset="2034">
-          <caret line="21" column="52" selection-start-line="21" selection-start-column="52" selection-end-line="21" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/UserAccounts.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="483">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AvailableTickets.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="483">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1208,16 +1197,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BackEndTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.428571" vertical-offset="2854" max-vertical-offset="5544">
-          <caret line="167" column="18" selection-start-line="167" selection-start-column="18" selection-end-line="167" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/UserAccount.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1099" max-vertical-offset="1548">
@@ -1225,6 +1204,24 @@
           <folding>
             <element signature="e#759#760#0" expanded="true" />
             <element signature="e#786#787#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AvailableTickets.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="483">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Transaction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="433" max-vertical-offset="2052">
+          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1245,11 +1242,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/BackEnd.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6787234" vertical-offset="3029" max-vertical-offset="5094">
-          <caret line="188" column="41" selection-start-line="188" selection-start-column="41" selection-end-line="188" selection-end-column="41" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1387" max-vertical-offset="5112">
+          <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
           <folding>
-            <element signature="e#9629#9630#0" expanded="true" />
-            <element signature="e#9652#9653#0" expanded="true" />
+            <element signature="e#9720#9721#0" expanded="true" />
+            <element signature="e#9743#9744#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BackEndTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.12967034" vertical-offset="3595" max-vertical-offset="6156">
+          <caret line="203" column="42" selection-start-line="203" selection-start-column="42" selection-end-line="203" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -127,12 +127,6 @@ public class BackEnd {
               userAccount.setCredit(userAccount.getCredit() + transaction.getCredit());
               accounts.set(userIndex, userAccount);
             }
-
-
-
-//            this.setUsername(transaction.substring(3, 15).replaceAll("\\s+", ""));
-//            this.setUserType(transaction.substring(19, 2));
-//            this.setCredit(Float.valueOf(transaction.substring(22, 9).replaceFirst("^0+(?!$)", "")));
           } else if (transaction.getCode().equals("03") || transaction.getCode().equals("04")) {
             // 03 = sell
             // 04 = buy
@@ -191,24 +185,36 @@ public class BackEnd {
               event.setCount(ticketNum);
               events.set(eventIndex, event);
             }
-
-//            this.setEventName(transaction.substring(3, 19).trim());
-//            this.setSellerName(transaction.substring(23, 13).trim());
-//            this.setTicketNum(Integer.valueOf(transaction.substring(37, 3).replaceFirst("^0+(?!$)", "")));
-//            this.setTicketPrice(Integer.valueOf(transaction.substring(41).replaceFirst("^0+(?!$)", "")));
           } else if (transaction.getCode().equals("05")) {
-            // 05 = refund
-//            this.setUsername(transaction.substring(3, 15).replaceAll("\\s+", ""));
-//            this.setSellerName(transaction.substring(19, 15).replaceAll("\\s+", ""));
-//            this.setCredit(Float.valueOf(transaction.substring(35, 9).replaceFirst("^0+(?!$)", "")));
+            int userIndex = accounts.find(transaction.getUsername());
+            if (userIndex == -1) {
+              consoleWriter.println("ERROR: User doesn't exist. " + transactionString);
+              return;
+            }
+
+            int sellerIndex = accounts.find(transaction.getSellerUsername());
+            if (sellerIndex == -1) {
+              consoleWriter.println("ERROR: Seller doesn't exist. " + transactionString);
+              return;
+            }
+
+            UserAccount userAccount = accounts.get(userIndex);
+            UserAccount sellerAccount = accounts.get(sellerIndex);
+
+            if (sellerAccount.getCredit() < userAccount.getCredit()) {
+              consoleWriter.println("ERROR: Seller does not have enough funds. " + transactionString);
+              return;
+            }
+
+            float balance = userAccount.getCredit();
+            userAccount.setCredit(balance + transaction.getCredit());
+
+            balance = sellerAccount.getCredit();
+            sellerAccount.setCredit(balance - transaction.getCredit());
+
+            accounts.set(userIndex, userAccount);
+            accounts.set(sellerIndex, sellerAccount);
           }
-					/*TODO: Create a new Transaction object with the information from the string
-					 *      Create/modify the events/users if need be
-					 */
-
-
-
-
         }
       } catch(IOException e){
         consoleWriter.println("ERROR: An error occured while processing the transaction file");
@@ -217,9 +223,6 @@ public class BackEnd {
     } catch(FileNotFoundException e){
       consoleWriter.println("ERROR: transactions.etf not found");
     }
-
-
-
 
     //Generate the new user accounts file
     try {
@@ -241,8 +244,6 @@ public class BackEnd {
       e.printStackTrace();
     }
   }
-
-
 
   public static void main(String[] args) {
 
