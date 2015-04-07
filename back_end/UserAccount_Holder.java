@@ -1,13 +1,36 @@
 //UserAccount_Holder.java
 //This class will serve to hold a list of all the User accounts
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+
 public class UserAccount_Holder{
 	private List<UserAccount> user_accounts;
 
   public UserAccount_Holder() {
     user_accounts = new ArrayList<UserAccount>();
+  }
+
+  public UserAccount_Holder(String userFileName) {
+    user_accounts = new ArrayList<UserAccount>();
+    File file = new File(userFileName);
+
+    try {
+      Scanner scanner = new Scanner(file);
+
+      //now read the file line by line...
+      while (scanner.hasNextLine()) {
+        String line = scanner.nextLine();
+
+        UserAccount userAccount = new UserAccount(line);
+        user_accounts.add(userAccount);
+      }
+    } catch(FileNotFoundException e) {
+      e.printStackTrace();
+    }
   }
 
 	//Returns the list of user accounts
@@ -36,6 +59,10 @@ public class UserAccount_Holder{
     return this.user_accounts.remove(index);
   }
 
+  /**
+   * Saves data to UserAccount.txt file
+   * @param writer - PrintWriter to write to (usually file)
+   */
 	public void save(PrintWriter writer) {
 		for (UserAccount userAccount : user_accounts) {
       if (userAccount != null && userAccount.getUsername() != null) {

@@ -6,6 +6,29 @@ public class UserAccount{
 	private String type;
 	private float credit;
 
+  public UserAccount(String data) {
+    username = "";
+    for (int i = 0; i < 15; i++) {
+      username += data.charAt(i);
+    }
+    username = username.replaceAll(" ", "");
+
+    type = "";
+    for (int i = 16; i < 18; i++) {
+      type += data.charAt(i);
+    }
+
+    credit = 0f;
+    String tempCredit = "";
+    for (int i = 19; i < 28; i++) {
+      tempCredit += data.charAt(i);
+    }
+    tempCredit = tempCredit.replaceFirst("^0+(?!$)", "");
+    credit = Float.valueOf(tempCredit);
+  }
+
+  public UserAccount() {}
+
 	//returns the user's username
 	public String getUsername(){
 		return this.username;

@@ -152,7 +152,7 @@ public class BackEnd {
 //    accounts.save();
 
     //Generate the new available tickets file
-    events.save();
+//    events.save();
   }
 
 
