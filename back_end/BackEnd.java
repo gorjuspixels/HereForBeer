@@ -7,6 +7,7 @@ public class BackEnd {
   private static FileReader ticketFileReader;
   private String transactionFile;
   private UserAccount_Holder accounts;
+  private PrintStream consoleWriter;
 
   /**
    * Creates BackEnd class with specified transactional input file
@@ -14,6 +15,12 @@ public class BackEnd {
    */
   public BackEnd(String s) {
     transactionFile = s;
+    processTransactions();
+  }
+
+  public BackEnd(String s, PrintStream consoleWriter) {
+    this.transactionFile = s;
+    this.consoleWriter = consoleWriter;
     processTransactions();
   }
 
@@ -30,6 +37,10 @@ public class BackEnd {
     Event_Holder events = new Event_Holder();
     if (transactionFile == null) {
       transactionFile = TRANSACTION_FILE;
+    }
+
+    if (consoleWriter == null) {
+      consoleWriter = System.out;
     }
 
 		/*TODO:Read the old current user accounts file
@@ -88,7 +99,7 @@ public class BackEnd {
               }
 
               if (!userExists) {
-                System.out.println("ERROR: User doesn't exist. " + transactionString);
+                consoleWriter.println("ERROR: User doesn't exist. " + transactionString);
                 return;
               }
 
@@ -122,14 +133,12 @@ public class BackEnd {
 
 
         }
-      }
-      catch(IOException e){
-        System.out.println("ERROR: An error occured while processing the transaction file");
+      } catch(IOException e){
+        consoleWriter.println("ERROR: An error occured while processing the transaction file");
       }
 
-    }
-    catch(FileNotFoundException e){
-      System.out.println("ERROR: transactions.etf not found");
+    } catch(FileNotFoundException e){
+      consoleWriter.println("ERROR: transactions.etf not found");
     }
 
 
