@@ -66,14 +66,35 @@ public class BackEnd {
             // 01 = create user
             // 02 = delete user
             // 06 = add credit
+            if (transaction.getCode().equals("00")) {
+              continue;
+            }
 
             UserAccount userAccount = new UserAccount();
             if (transaction.getCode().equals("01")) {
               userAccount.setUsername(transaction.getUsername());
               userAccount.setType(transaction.getUserType());
               userAccount.setCredit(transaction.getCredit());
+              accounts.add(userAccount);
+            } else if (transaction.getCode().equals("02")) {
+              boolean userExists = false;
+              int userIndex = -1;
+              for (int i=0; i<accounts.size(); i++) {
+                if (accounts.get(i).getUsername().equals(transaction.getUsername())) {
+                  userExists = true;
+                  userIndex = i;
+                  break;
+                }
+              }
+
+              if (!userExists) {
+                System.out.println("ERROR: User doesn't exist. " + transactionString);
+                return;
+              }
+
+              accounts.remove(userIndex);
             }
-            accounts.add(userAccount);
+
 
 
 //            this.setUsername(transaction.substring(3, 15).replaceAll("\\s+", ""));

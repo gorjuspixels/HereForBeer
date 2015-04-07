@@ -1,6 +1,5 @@
 import org.apache.commons.lang.RandomStringUtils;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -9,22 +8,80 @@ import java.io.UnsupportedEncodingException;
 
 public class BackEndTest {
 
+  private final String GREEN = (char)27 + "[32m";
+  private final String RED = (char)27 + "[31m";
+
+  private String transactionFileName;
+  private String userFileName;
+  private BackEnd backEnd;
+  private PrintWriter userAccountWriter;
+
   @Test
-  public void testMain() throws Exception {
-    String createUser = "01 sam             FS 000000100";
-    String[] transaction = { createUser };
-    String transactionFileName = writeTransactionFile(transaction);
-    BackEnd backEnd = new BackEnd(transactionFileName);
+  public void testCreateUser() {
+    String[] transaction = new String[]{
+        "01 sam             FS 000000100",
+        "00                    000000000"
+    };
+    String description = "should create user same with FS user type and 100 as credit";
+    setupTest(transaction);
+    backEnd.getUserAccounts().save(userAccountWriter);
 
-    PrintWriter writer = new PrintWriter("UserAccounts1234.txt", "UTF-8");
-    backEnd.getUserAccounts().save(writer);
+    try {
+      Assert.assertTrue(description,
+          validateUser("sam             FS 000000100", backEnd.getUserAccounts()));
+      System.out.println(GREEN + description + " - passed");
+    } catch(AssertionError e) {
+      System.out.println(RED + description + " - failed");
+      throw e;
+    }
+  }
 
-    Assert.assertTrue("should create user same with FS user type and 100 as credit",
-        validateUser("sam             FS 000000100", backEnd.getUserAccounts()));
+  @Test
+  public void testSuccessDeleteUser() {
+    String[] transaction = new String[]{
+        "01 sam             FS 000000100",
+        "02 sam             FS 000000100",
+        "00                    000000000"
+    };
+    String description = "should delete user when code 02 and user exists";
+    setupTest(transaction);
+    backEnd.getUserAccounts().save(userAccountWriter);
 
+    try {
+      Assert.assertEquals(description, 0, backEnd.getUserAccounts().size());
+      System.out.println(GREEN + description + " - passed");
+    } catch(AssertionError e) {
+      System.out.println(RED + description + " - failed");
+      throw e;
+    }
+  }
+
+  private void setupTest(String[] transaction) {
+    transactionFileName = writeTransactionFile(transaction);
+    backEnd = new BackEnd(transactionFileName);
+  }
+
+  @Before
+  public void executedBeforeEach() {
+    userFileName = "UserAccounts" + RandomStringUtils.randomAlphanumeric(20).toUpperCase() + ".txt";
+    try {
+      userAccountWriter = new PrintWriter(userFileName, "UTF-8");
+    } catch (FileNotFoundException e) {
+      e.printStackTrace();
+    } catch (UnsupportedEncodingException e) {
+      e.printStackTrace();
+    }
+  }
+
+  @After
+  public void executedAfterEach() {
     File transactions = new File(transactionFileName);
     transactions.delete();
+    File userAccounts = new File(userFileName);
+    userAccounts.delete();
+    userAccountWriter.close();
   }
+
 
   /**
    * Validates created user against proper user record
