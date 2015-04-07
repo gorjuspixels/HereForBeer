@@ -145,6 +145,51 @@ public class BackEnd {
               event.setPrice(transaction.getTicketPrice());
 
               events.add(event);
+            } else if(transaction.getCode().equals("04")) {
+              int eventIndex = events.find(transaction.getEventName());
+              if (eventIndex == -1) {
+                consoleWriter.println("ERROR: Event doesn't exist. " + transactionString);
+                return;
+              }
+
+              int userIndex = accounts.find(transaction.getSellerUsername());
+              if (userIndex == -1) {
+                consoleWriter.println("ERROR: User doesn't exist. " + transactionString);
+                return;
+              }
+
+              Event event = events.get().get(eventIndex);
+
+              int sellerIndex = accounts.find(event.getSeller());
+              if (sellerIndex == -1) {
+                consoleWriter.println("ERROR: Seller doesn't exist. " + transactionString);
+                return;
+              }
+
+              UserAccount userAccount = accounts.get(userIndex);
+              UserAccount sellerAccount = accounts.get(sellerIndex);
+              float amount = event.getPrice() * transaction.countTickets();
+              if (userAccount.getCredit() < amount) {
+                consoleWriter.println("ERROR: User doesn't have enough funds. " + transactionString);
+                return;
+              } else if (event.countTickets() <= 0 || event.countTickets() < transaction.countTickets()) {
+                consoleWriter.println("ERROR: Event doesn't have enough tickets available. " + transactionString);
+                return;
+              }
+
+              float balance = userAccount.getCredit();
+              balance -= amount;
+              userAccount.setCredit(balance);
+              accounts.set(userIndex, userAccount);
+
+              balance = sellerAccount.getCredit() + amount;
+              sellerAccount.setCredit(balance);
+              accounts.set(sellerIndex, sellerAccount);
+
+              int ticketNum = event.countTickets();
+              ticketNum -= transaction.countTickets();
+              event.setCount(ticketNum);
+              events.set(eventIndex, event);
             }
 
 //            this.setEventName(transaction.substring(3, 19).trim());

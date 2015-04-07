@@ -79,4 +79,13 @@ public class Event_Holder {
 
     writer.close();
   }
+
+  /**
+   * Sets event at specified index
+   * @param eventIndex - event index in the array
+   * @param event - Event object itself
+   */
+  public void set(int eventIndex, Event event) {
+    events.set(eventIndex, event);
+  }
 }
