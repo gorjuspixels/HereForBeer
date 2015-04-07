@@ -45,8 +45,6 @@ public class BackEnd {
 
   private void processTransactions() {
     //Creates holder classes for the events, and accounts
-    accounts = new UserAccount_Holder();
-    events = new Event_Holder();
     if (transactionFile == null) {
       transactionFile = TRANSACTION_FILE;
     }
@@ -61,18 +59,10 @@ public class BackEnd {
       consoleWriter = System.out;
     }
 
-		/*TODO:Read the old current user accounts file
-		 *     Create a user object for each user
-		 *     Add each user to a list, and store in UserAccount_Holder class
-		*/
     accountFileReader = initializeFile(userFile);
-
-
-		/*TODO: Read the old available tickets file
-		 *      Create an Event class for each event in the file
-		 *      Add each event to a list, and store in the Event_Holder class
-		*/
     ticketFileReader = initializeFile(ticketFile);
+    accounts = new UserAccount_Holder(userFile);
+    events = new Event_Holder(ticketFile);
 
 
     //Reads the merged daily transaction file
