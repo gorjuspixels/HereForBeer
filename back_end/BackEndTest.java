@@ -15,9 +15,9 @@ public class BackEndTest {
   private String transactionFileName;
   private String userFileName;
   private BackEnd backEnd;
-  private PrintWriter userAccountWriter;
   private PrintStream consoleWriter;
   private String consoleFileName;
+  private String ticketFileName;
 
   @Test
   /**
@@ -53,7 +53,6 @@ public class BackEndTest {
     };
     String description = "should delete user when code 02 and user exists";
     setupTest(transaction);
-    backEnd.getUserAccounts().save(userAccountWriter);
 
     try {
       Assert.assertEquals(description, 0, backEnd.getUserAccounts().size());
@@ -134,6 +133,28 @@ public class BackEndTest {
     }
   }
 
+  @Test
+  /**
+   * Tests successful sell
+   */
+  public void testSuccessSell() {
+    String[] transaction = new String[] {
+        "01 sam             FS 000000100",
+        "03 Digital Dreams      sam           111 000050",
+        "00                    000000000"
+    };
+    String description = "should successfully created an event for sale";
+    setupTest(transaction);
+
+    try {
+
+      System.out.println(GREEN + description + " - passed");
+    } catch(AssertionError e) {
+      System.out.println(RED + description + " - failed");
+      throw e;
+    }
+  }
+
   /**
    * Sets up backend with given transaction file
    * @param transaction array of transaction lines
@@ -145,21 +166,14 @@ public class BackEndTest {
     } catch (FileNotFoundException e) {
       e.printStackTrace();
     }
-    backEnd = new BackEnd(transactionFileName, consoleWriter);
-    backEnd.getUserAccounts().save(userAccountWriter);
+    backEnd = new BackEnd(transactionFileName, ticketFileName, userFileName, consoleWriter);
   }
 
   @Before
   public void executedBeforeEach() {
     userFileName = "UserAccounts" + RandomStringUtils.randomAlphanumeric(20).toUpperCase() + ".txt";
     consoleFileName = "ConsoleOutput" + RandomStringUtils.randomAlphanumeric(20).toUpperCase() + ".txt";
-    try {
-      userAccountWriter = new PrintWriter(userFileName, "UTF-8");
-    } catch (FileNotFoundException e) {
-      e.printStackTrace();
-    } catch (UnsupportedEncodingException e) {
-      e.printStackTrace();
-    }
+    ticketFileName = "AvailableTickets" + RandomStringUtils.randomAlphanumeric(20).toUpperCase() + ".txt";
   }
 
   @After
@@ -170,7 +184,8 @@ public class BackEndTest {
     userAccounts.delete();
     File consoleFile = new File(consoleFileName);
     consoleFile.delete();
-    userAccountWriter.close();
+    File ticketFile = new File(ticketFileName);
+    ticketFile.delete();
     consoleWriter.close();
   }
 

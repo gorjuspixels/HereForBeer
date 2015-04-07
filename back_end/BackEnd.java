@@ -6,7 +6,10 @@ public class BackEnd {
   private static FileReader accountFileReader;
   private static FileReader ticketFileReader;
   private String transactionFile;
+  private String ticketFile;
+  private String userFile;
   private UserAccount_Holder accounts;
+  private Event_Holder events;
   private PrintStream consoleWriter;
 
   /**
@@ -18,8 +21,17 @@ public class BackEnd {
     processTransactions();
   }
 
-  public BackEnd(String s, PrintStream consoleWriter) {
-    this.transactionFile = s;
+  /**
+   * Creates BackEnd class with specified file inputs
+   * @param transactionFile - transaction input file
+   * @param ticketFile - available ticket input file
+   * @param userFile - available ticket input file
+   * @param consoleWriter - writer to output console log to
+   */
+  public BackEnd(String transactionFile, String ticketFile, String userFile, PrintStream consoleWriter) {
+    this.transactionFile = transactionFile;
+    this.ticketFile = ticketFile;
+    this.userFile = userFile;
     this.consoleWriter = consoleWriter;
     processTransactions();
   }
@@ -34,9 +46,15 @@ public class BackEnd {
   private void processTransactions() {
     //Creates holder classes for the events, and accounts
     accounts = new UserAccount_Holder();
-    Event_Holder events = new Event_Holder();
+    events = new Event_Holder();
     if (transactionFile == null) {
       transactionFile = TRANSACTION_FILE;
+    }
+    if (ticketFile == null) {
+      ticketFile = AVAIL_TICKETS;
+    }
+    if (userFile == null) {
+      userFile = USER_ACCOUNTS;
     }
 
     if (consoleWriter == null) {
@@ -47,14 +65,14 @@ public class BackEnd {
 		 *     Create a user object for each user
 		 *     Add each user to a list, and store in UserAccount_Holder class
 		*/
-    accountFileReader = initializeFile(USER_ACCOUNTS);
+    accountFileReader = initializeFile(userFile);
 
 
 		/*TODO: Read the old available tickets file
 		 *      Create an Event class for each event in the file
 		 *      Add each event to a list, and store in the Event_Holder class
 		*/
-    ticketFileReader = initializeFile(AVAIL_TICKETS);
+    ticketFileReader = initializeFile(ticketFile);
 
 
     //Reads the merged daily transaction file
@@ -149,10 +167,24 @@ public class BackEnd {
 
 
     //Generate the new user accounts file
-//    accounts.save();
+    try {
+      PrintWriter userAccountWriter = new PrintWriter(userFile, "UTF-8");
+      accounts.save(userAccountWriter);
+    } catch (FileNotFoundException e) {
+      e.printStackTrace();
+    } catch (UnsupportedEncodingException e) {
+      e.printStackTrace();
+    }
 
     //Generate the new available tickets file
-//    events.save();
+    try {
+      PrintWriter ticketFileReader = new PrintWriter(ticketFile, "UTF-8");
+      events.save(ticketFileReader);
+    } catch (FileNotFoundException e) {
+      e.printStackTrace();
+    } catch (UnsupportedEncodingException e) {
+      e.printStackTrace();
+    }
   }
 
 

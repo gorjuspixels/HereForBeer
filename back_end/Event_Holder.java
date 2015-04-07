@@ -10,7 +10,9 @@ import java.util.Scanner;
 public class Event_Holder {
   private List<Event> events;
 
-  public Event_Holder() {}
+  public Event_Holder() {
+    events = new ArrayList<Event>();
+  }
 
   public Event_Holder(String fileName) {
     events = new ArrayList<Event>();
