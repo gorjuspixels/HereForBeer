@@ -81,29 +81,33 @@ public class BackEnd {
               continue;
             }
 
-            UserAccount userAccount = new UserAccount();
+
             if (transaction.getCode().equals("01")) {
+              UserAccount userAccount = new UserAccount();
               userAccount.setUsername(transaction.getUsername());
               userAccount.setType(transaction.getUserType());
               userAccount.setCredit(transaction.getCredit());
               accounts.add(userAccount);
             } else if (transaction.getCode().equals("02")) {
-              boolean userExists = false;
-              int userIndex = -1;
-              for (int i=0; i<accounts.size(); i++) {
-                if (accounts.get(i).getUsername().equals(transaction.getUsername())) {
-                  userExists = true;
-                  userIndex = i;
-                  break;
-                }
-              }
+              int userIndex = accounts.find(transaction.getUsername());
 
-              if (!userExists) {
+              if (userIndex == -1) {
                 consoleWriter.println("ERROR: User doesn't exist. " + transactionString);
                 return;
               }
 
               accounts.remove(userIndex);
+            } else if (transaction.getCode().equals("06")) {
+              int userIndex = accounts.find(transaction.getUsername());
+
+              if (userIndex == -1) {
+                consoleWriter.println("ERROR: User doesn't exist. " + transactionString);
+                return;
+              }
+
+              UserAccount userAccount = accounts.get(userIndex);
+              userAccount.setCredit(userAccount.getCredit() + transaction.getCredit());
+              accounts.set(userIndex, userAccount);
             }
 
 

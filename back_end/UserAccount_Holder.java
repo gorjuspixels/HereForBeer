@@ -45,4 +45,30 @@ public class UserAccount_Holder{
 
     writer.close();
 	}
+
+  /**
+   * Finds a user account based on its username
+   * @param username - user's username
+   * @return int index of UserAccount element in the array
+   */
+  public int find(String username) {
+    int userIndex = -1;
+    for (int i=0; i<user_accounts.size(); i++) {
+      if (user_accounts.get(i).getUsername().equals(username)) {
+        userIndex = i;
+        break;
+      }
+    }
+
+    return userIndex;
+  }
+
+  /**
+   * Sets UserAccount at an index in the array
+   * @param userIndex - index to the element at
+   * @param userAccount - UserAccount object to set
+   */
+  public void set(int userIndex, UserAccount userAccount) {
+    user_accounts.set(userIndex, userAccount);
+  }
 }

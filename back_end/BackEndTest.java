@@ -87,6 +87,31 @@ public class BackEndTest {
     }
   }
 
+  @Test
+  /**
+   * Tests user deletion when user does not exist
+   */
+  public void testAddCredit() {
+    String username = "sam";
+    String[] transaction = new String[] {
+        "01 " + username + "             FS 000000100",
+        "06 " + username + "             FS 000000100",
+        "00                    000000000"
+    };
+    String description = "should successfully add 100 credits to user";
+    setupTest(transaction);
+
+    try {
+      int userIndex = backEnd.getUserAccounts().find(username);
+      UserAccount userAccount = backEnd.getUserAccounts().get(userIndex);
+      Assert.assertEquals(description, 200.0, userAccount.getCredit(), 0.01);
+      System.out.println(GREEN + description + " - passed");
+    } catch(AssertionError e) {
+      System.out.println(RED + description + " - failed");
+      throw e;
+    }
+  }
+
   /**
    * Sets up backend with given transaction file
    * @param transaction array of transaction lines
